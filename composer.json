@@ -1,0 +1,16 @@
+{
+  "name": "jsuhover/328/IT328-Final",
+  "authors": [
+    {
+      "name": "Jake Suhoversnik",
+      "email": "jsuhoversnik@mail.greenriver.edu"
+    },
+    {
+      "name": "Guangpeng Wu",
+      "email": "gwu2@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
