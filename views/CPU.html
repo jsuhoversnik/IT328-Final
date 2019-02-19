@@ -10,45 +10,54 @@
 <div class="navbar">
     Computer Assembly
 </div>
+<hr>
 <div class="container rounded border">
 
     <div class=" mt-4 mb-4">
         <div class="text-center">
-            <h1>Do you have a prefer CPU?</h1>
+            <h1>CPU</h1>
         </div>
         <hr>
         <br/>
         <form action="#" method="post" class="form-horizontal">
-            <div>
-                <div class="row">
-                    <p>
-                        <input type="radio" name="CPU" value="Yes"
-                        >Yes&nbsp;<br/>
-                        <input type="radio" name="CPU" value="No"
-                        > No
+            <div class="row">
+                <div class="col-5 text-center align-content-center">
+                    <h4>Do you have a CPU already selected?</h4>
+                    <br/>
+                    <div class="">
+                        <div class="radio">
+                            <label class="radio-inline mr-3"><input type="radio" id="CPU" name="CPU" value="Yes"> Yes</label>
+                            <label class="radio-inline"><input type="radio" name="CPU" value="No" checked > No</label>
+                        </div>
+                        <br/>
+                        <div class="col-10 ml-5">
+                            <!--TODO add javascript to hide input field if 'no' is selected-->
+                            <input class="form-control" name="CPUchoice" list="CPUchoice">
+                        </div>
+                        <datalist id="CPUchoice">
+                            <option value="Intel Xeon Platinum 8173M @ 2.00GHz">
+                            <option value="Intel Xeon Gold 6154 @ 3.00GHz">
+                            <option value="Intel Core i9-7980XE @ 2.60GHz">
+                            <option value="Intel Core i7-7820X @ 3.60GHz">
+                            <option value="Intel Xeon E5-2680 v3 @ 2.50GHz">
+                            <option value="Intel Core i7-7900X @ 3.30GHz">
+                            <option value="AMD EPYC 7401P">
+                            <option value="Intel Core i7-6900K @ 3.20GHz">
 
-                    </p>
-                    <p>
-                        <input class="form-control" name="CPUchoice" list="CPUchoice">
-                    </p>
-                    <datalist id="CPUchoice">
-                        <option value="Intel Xeon Platinum 8173M @ 2.00GHz">
-                        <option value="Intel Xeon Gold 6154 @ 3.00GHz">
-                        <option value="Intel Core i9-7980XE @ 2.60GHz">
-                        <option value="Intel Core i7-7820X @ 3.60GHz">
-                        <option value="Intel Xeon E5-2680 v3 @ 2.50GHz">
-                        <option value="Intel Core i7-7900X @ 3.30GHz">
-                        <option value="AMD EPYC 7401P">
-                        <option value="Intel Core i7-6900K @ 3.20GHz">
-
-                    </datalist>
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="images/cpu/intel.jpg" alt="Intel CPU" class="rounded img-fluid">
                 </div>
             </div>
+
+            <br/>
+            <br/>
+
             <div class="text-center">
-
-
                 <button type="submit" class="btn btn-primary btn-lg" name="submit">
-                    Submit!
+                    Next >
                 </button>
             </div>
         </form>
