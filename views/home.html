@@ -16,14 +16,29 @@
     <div class="row mt-2 mb-2">
         <form action="#" method="post" class="form-horizontal">
             <div class="text-center">
-
                 <h1>Computer Assembly</h1>
-
+                <hr>
+                <br>
             </div>
-            <div class="text-left">
-                <p>
-                    The following components are available when building a computer: the casing, the motherboard, the
-                    processor, the RAM modules, the storage drives, and expansion cards.
+            <div class="row">
+                <div class="text-left col-6 ml-2" >
+                    <p> Our goal is to give suggestions to users trying to build their own PC.
+                        <br>
+                        Given a budget, and an intended use we construct the best system for the job.
+
+                        <br>
+                        <br>
+
+                        The following components are available when building a computer:
+                    <ul>
+                        <li>CPU</li>
+                        <li>GPU</li>
+                        <li>Storage drives (HDD, SSD)</li>
+                        <li>Motherboard</li>
+                        <li>Memory</li>
+                        <li>Case</li>
+                    </ul>
+                    <!--
                     The metal casing houses the internal components of the computer. It usually comes with its own power
                     supply and a set of screws, connectors, and cables.
                     The processor is the computer's main integrated circuit and is known as the true brain of the
@@ -38,20 +53,28 @@
                     drives, and expansion cards.
 
                     Now we are giving plan suggestions to users as they are trying to assembly the PC on their own.
-                </p>
+                    -->
+                    </p>
 
+                </div>
 
-                <label class="form-inline">
-                    <strong>Plan #<br/></strong>
+                <div class="col-5 text-center">
+                    <img src="images/system/complete.jpg" alt="Intel CPU" class="rounded img-fluid">
+                    <br/>
 
-                    <input class="form-control" type="text" name="plan" id="plan">
-                </label>
+                    <label for="plan">
+                        <strong>Already have a plan?<br></strong>
+                    </label>
 
+                    <input class="form-control col-9 ml-5" type="text" name="plan" id="plan" placeholder="Plan #">
+                </div>
             </div>
-            <div class="text-center">
+            <br>
 
-                <button type="submit" class="btn btn-primary btn-lg" name="submit">
-                    Submit!
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg m-2" name="submit">
+                    Get Started!
                 </button>
             </div>
 
