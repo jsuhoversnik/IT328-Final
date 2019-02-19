@@ -13,8 +13,149 @@
 <div class="container rounded border">
 
     <div class=" mt-4 mb-4">
+        <form action="#" method="post" class="form-horizontal">
+            <div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <table class="table container rounded border">
+                            <tr>
+                                <td>Details</td>
+                                <td>Model Reference Price</td>
+                            </tr>
+                            <tr>
+                                <td>CPU:</td>
+                                <td>
+                                    <button type="button" class="btn" name="CPU"></button>
+                                </td>
+                                <!--<td>CPU: {{ @SESSION['plan']->getCPU() }}</td>-->
+                            </tr>
+                            <tr>
+                                <td>GPU:</td>
+                                <td>
+                                    <button type="button" class="btn"></button>
+                                </td>
+                                <!--<td>GPU: {{ @SESSION['plan']->getGPU() }}</td>-->
+                            </tr>
+                            <tr>
+                                <td>SSD:</td>
+                                <td>
+                                    <button type="button" class="btn"></button>
+                                </td>
+                                <!--<td>SSD: {{ @SESSION['plan']->getSSD() }}</td>-->
+                            </tr>
+                            <tr>
+                                <td>HD:</td>
+                                <td>
+                                    <button type="button" class="btn"></button>
+                                </td>
+                                <!--<td>HD: {{ @SESSION['plan']->getHD() }}</td>-->
+                            </tr>
+                            <tr>
+                                <td>Power:</td>
+                                <td>
+                                    <button type="button" class="btn"></button>
+                                </td>
+                                <!--<td>Power: {{ @SESSION['plan']->getPower() }}</td>-->
+                            </tr>
+                            <tr>
+                                <td>RAM:</td>
+                                <td>
+                                    <button type="button" class="btn"></button>
+                                </td>
+                                <!--<td>RAM: {{ @SESSION['plan']->getRAM() }}</td>-->
+                            </tr>
+                            <tr>
+                                <td>Monitor:</td>
+                                <td><input class="form-control" type="text" name="Monitor" id="Monitor"
+                                           placeholder="100">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Case:</td>
+                                <td><input class="form-control" type="text" name="Case" id="Case"
+                                           placeholder="100">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>mouse/keyboard/loudspeaker:</td>
+                                <td><input class="form-control" type="text" name="mouse" id="mouse"
+                                           placeholder="100">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Score:
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                        <span class="sr-only">40%</span>
+                                    </div>
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                                        <span class="sr-only">30%</span>
+                                    </div>
+
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                        <span class="sr-only">60%</span>
+                                    </div>
+                                </td>
+                                <td>Total: $
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div>
+
+                            <button type="submit" class="btn btn-primary btn-lg" name="Save">
+                                Save
+                            </button>
+                            <p>
+                                * If one part of score is much lower than other parts,
+                                that means the plan is not perfect because the performance
+                                is depend on the lowest bar.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <table class="table container rounded border">
+                            <tr>
+                                <td>model</td>
+                                <td>score bar</td>
+                                <td>Reference Price</td>
+                            </tr>
+                            <!--<check if (isset($_POST['CPU']))>-->
+                            <!--<tr>-->
+                            <!--<td>CPU:-->
+                            <!--<repeat group="" value="">-->
+                            <!--</repeat>-->
+                            <!--</td>-->
+                            <!--</tr>-->
+                            <!--</check>-->
+                        </table>
+                    </div>
 
 
+                    <div class="col-sm-4">
+                        <h3>Reference Plan</h3>
+                        <table class="table container rounded border">
+                            Type:
+                            <button type="button" class="btn btn-success">game</button>
+                            <button type="button" class="btn btn-success">school</button>
+                            <button type="button" class="btn btn-success">work</button>
+                            <button type="button" class="btn btn-success">design</button>
+                            <button type="button" class="btn btn-success">top</button>
+                        </table>
+                        <table class="table container rounded border">
+                            Budget:
+                            <button type="button" class="btn btn-success"><500</button>
+                            <button type="button" class="btn btn-success">500-800</button>
+                            <button type="button" class="btn btn-success">>800</button>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 

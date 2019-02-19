@@ -7,7 +7,7 @@
  */
 
 //turn on error reporting
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 //require autoload
@@ -45,8 +45,17 @@ $f3->route('GET|POST /GPU', function ($f3) {
 });
 
 $f3->route('GET|POST /Plan', function ($f3) {
+    if (isset($_POST['save']))
+        $f3->reroute('/Save');
     $template = new Template();
     echo $template->render('views/Plan.html');
+});
+
+$f3->route('GET|POST /Save', function ($f3) {
+    if (isset($_POST['return']))
+        $f3->reroute('/Plan');
+    $template = new Template();
+    echo $template->render('views/Save.html');
 });
 
 
