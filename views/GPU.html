@@ -10,45 +10,54 @@
 <div class="navbar">
     Computer Assembly
 </div>
+<hr>
 <div class="container rounded border">
 
     <div class=" mt-4 mb-4">
         <div class="text-center">
-            <h1>Do you have a prefer GPU?</h1>
+            <h1>GPU</h1>
         </div>
         <hr>
         <br/>
         <form action="#" method="post" class="form-horizontal">
-            <div>
-                <div class="row">
-                    <p>
-                        <input type="radio" name="GPU" value="Yes"
-                        >Yes&nbsp;<br/>
-                        <input type="radio" name="GPU" value="No"
-                        > No
+            <div class="row">
+                <div class="col-5 text-center align-content-center">
+                    <h4>Do you have a GPU already selected?</h4>
+                    <br/>
+                    <div class="">
+                        <div class="radio">
+                            <label class="radio-inline mr-3"><input type="radio" id="GPU" name="GPU" value="Yes"> Yes</label>
+                            <label class="radio-inline"><input type="radio" name="GPU" value="No" checked > No</label>
+                        </div>
+                        <br/>
+                        <div class="col-10 ml-5">
+                            <!--TODO add javascript to hide input field if 'no' is selected-->
+                            <input class="form-control" name="GPUchoice" list="GPUchoice">
+                        </div>
+                        <datalist id="GPUchoice">
+                            <option value="TITAN Xp COLLECTORS EDITION">
+                            <option value="GeForce GTX 1080 Ti">
+                            <option value="NVIDIA TITAN Xp">
+                            <option value="Radeon Pro Vega 64">
+                            <option value="TITAN V">
+                            <option value="GeForce GTX 1070 Ti">
+                            <option value="GeForce GTX 1080">
+                            <option value="GeForce GTX 980 Ti">
 
-                    </p>
-                    <p>
-                        <input class="form-control" name="GPUchoice" list="GPUchoice">
-                    </p>
-                    <datalist id="GPUchoice">
-                        <option value="TITAN Xp COLLECTORS EDITION">
-                        <option value="GeForce GTX 1080 Ti">
-                        <option value="NVIDIA TITAN Xp">
-                        <option value="Radeon Pro Vega 64">
-                        <option value="TITAN V">
-                        <option value="GeForce GTX 1070 Ti">
-                        <option value="GeForce GTX 1080">
-                        <option value="GeForce GTX 980 Ti">
-
-                    </datalist>
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="images/gpu/nvidia.jpg" alt="Nvidia GPU" class="rounded img-fluid">
                 </div>
             </div>
+
+            <br/>
+            <br/>
+
             <div class="text-center">
-
-
                 <button type="submit" class="btn btn-primary btn-lg" name="submit">
-                    Submit!
+                    Next >
                 </button>
             </div>
         </form>
