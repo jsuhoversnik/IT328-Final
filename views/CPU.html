@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CPU</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+<div class="navbar">
+    Computer Assembly
+</div>
+<div class="container rounded border">
+
+    <div class=" mt-4 mb-4">
+        <div class="text-center">
+            <h1>Do you have a prefer CPU?</h1>
+        </div>
+        <hr>
+        <br/>
+        <form action="#" method="post" class="form-horizontal">
+            <div>
+                <div class="row">
+                    <p>
+                        <input type="radio" name="CPU" value="Yes"
+                        >Yes&nbsp;<br/>
+                        <input type="radio" name="CPU" value="No"
+                        > No
+
+                    </p>
+                    <p>
+                        <input class="form-control" name="CPUchoice" list="CPUchoice">
+                    </p>
+                    <datalist id="CPUchoice">
+                        <option value="Intel Xeon Platinum 8173M @ 2.00GHz">
+                        <option value="Intel Xeon Gold 6154 @ 3.00GHz">
+                        <option value="Intel Core i9-7980XE @ 2.60GHz">
+                        <option value="Intel Core i7-7820X @ 3.60GHz">
+                        <option value="Intel Xeon E5-2680 v3 @ 2.50GHz">
+                        <option value="Intel Core i7-7900X @ 3.30GHz">
+                        <option value="AMD EPYC 7401P">
+                        <option value="Intel Core i7-6900K @ 3.20GHz">
+
+                    </datalist>
+                </div>
+            </div>
+            <div class="text-center">
+
+
+                <button type="submit" class="btn btn-primary btn-lg" name="submit">
+                    Submit!
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+</body>
+</html>
