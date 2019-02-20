@@ -24,8 +24,16 @@ $f3->set('DEBUG', 3);
 
 
 $f3->route('GET|POST /', function ($f3) {
-    if (isset($_POST['submit']))
-        $f3->reroute('/CPU');
+    if (isset($_POST['submit'])){
+        if($_POST['plan']!=""){
+            $f3->reroute('/Plan');
+        }
+        else{
+            $f3->reroute('/CPU');
+        }
+
+    }
+
     $template = new Template();
     echo $template->render('views/home.html');
 });
