@@ -67,6 +67,9 @@
                     </label>
 
                     <input class="form-control col-9 ml-5" type="text" name="plan" id="plan" placeholder="Plan #">
+                    <check if="{{isset(@error['plan'])}}">
+                        <p>{{@error['plan']}}</p>
+                    </check>
                 </div>
             </div>
             <br>

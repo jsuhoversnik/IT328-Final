@@ -26,44 +26,50 @@
                             <tr>
                                 <td>CPU:</td>
                                 <td>
-                                    <button type="button" class="btn" name="CPU"></button>
+                                    <button type="button" class="btn" name="CPU" id="CPU">CPU</button>
                                 </td>
-                                <!--<td>CPU: {{ @SESSION['plan']->getCPU() }}</td>-->
+
+                            </tr>
+                            <tr>
+                                <td>Motherboard:</td>
+                                <td>
+                                    <button type="button" class="btn" name="Motherboard"></button>
+                                </td>
+                                <!--<td>CPU: {{ @SESSION['plan']->getMotherboard() }}</td>-->
                             </tr>
                             <tr>
                                 <td>GPU:</td>
                                 <td>
-                                    <button type="button" class="btn"></button>
+                                    <button type="button" class="btn" name="GPU"></button>
                                 </td>
                                 <!--<td>GPU: {{ @SESSION['plan']->getGPU() }}</td>-->
                             </tr>
                             <tr>
+                                <td>RAM:</td>
+                                <td>
+                                    <button type="button" class="btn" name="RAM"></button>
+                                </td>
+                                <!--<td>RAM: {{ @SESSION['plan']->getRAM() }}</td>-->
+                            </tr>
+                            <tr>
                                 <td>SSD:</td>
                                 <td>
-                                    <button type="button" class="btn"></button>
+                                    <button type="button" class="btn" name="SSD"></button>
                                 </td>
                                 <!--<td>SSD: {{ @SESSION['plan']->getSSD() }}</td>-->
                             </tr>
                             <tr>
                                 <td>HD:</td>
                                 <td>
-                                    <button type="button" class="btn"></button>
+                                    <button type="button" class="btn" name="HD"></button>
                                 </td>
                                 <!--<td>HD: {{ @SESSION['plan']->getHD() }}</td>-->
                             </tr>
                             <tr>
                                 <td>Power:</td>
-                                <td>
-                                    <button type="button" class="btn"></button>
+                                <td><input class="form-control" type="text" name="Power" id="Power"
+                                           placeholder="100">
                                 </td>
-                                <!--<td>Power: {{ @SESSION['plan']->getPower() }}</td>-->
-                            </tr>
-                            <tr>
-                                <td>RAM:</td>
-                                <td>
-                                    <button type="button" class="btn"></button>
-                                </td>
-                                <!--<td>RAM: {{ @SESSION['plan']->getRAM() }}</td>-->
                             </tr>
                             <tr>
                                 <td>Monitor:</td>
@@ -102,13 +108,14 @@
                                 <td>Total: $
                                 </td>
                             </tr>
+                            <button type="submit" class="btn btn-primary btn-lg" name="Save">
+                            Save
+                        </button>
                         </table>
 
                         <div>
 
-                            <button type="submit" class="btn btn-primary btn-lg" name="Save">
-                                Save
-                            </button>
+
                             <p>
                                 * If one part of score is much lower than other parts,
                                 that means the plan is not perfect because the performance
@@ -117,11 +124,14 @@
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <table class="table container rounded border">
+                        <table class="table container rounded border" id="planTable">
                             <tr>
                                 <td>model</td>
                                 <td>score bar</td>
                                 <td>Reference Price</td>
+                            </tr>
+                            <tr>
+
                             </tr>
                             <!--<check if (isset($_POST['CPU']))>-->
                             <!--<tr>-->
@@ -143,13 +153,12 @@
                             <button type="button" class="btn btn-success">school</button>
                             <button type="button" class="btn btn-success">work</button>
                             <button type="button" class="btn btn-success">design</button>
-                            <button type="button" class="btn btn-success">top</button>
                         </table>
                         <table class="table container rounded border">
                             Budget:
-                            <button type="button" class="btn btn-success"><500</button>
-                            <button type="button" class="btn btn-success">500-800</button>
-                            <button type="button" class="btn btn-success">>800</button>
+                            <button type="button" class="btn btn-success"><$500</button>
+                            <button type="button" class="btn btn-success">$500-$800</button>
+                            <button type="button" class="btn btn-success">>$800</button>
                         </table>
                     </div>
 
@@ -158,7 +167,12 @@
         </form>
     </div>
 </div>
-
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+    $("#CPU").on("click",function(){
+        $("#planTable").load("CPU.html");
+    });
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </body>
 </html>

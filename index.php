@@ -13,6 +13,8 @@ error_reporting(E_ALL);
 //require autoload
 require_once('vendor/autoload.php');
 
+require('classes/plan.php');
+
 session_start();
 //print_r($_SESSION);
 //fat free framework
@@ -22,8 +24,22 @@ $f3 = Base::instance();
 // turn on fet-free error reporting
 $f3->set('DEBUG', 3);
 
-
+require_once('model/validation-functions.php');
 $f3->route('GET|POST /', function ($f3) {
+    $_SESSION = array();
+
+    if (isset($_POST['plan'])&&isset($_POST['submit'])) {
+        $planNumber = $_POST['plan'];
+//        if (validPlan($planNumber)) {
+//            $plan = new plan($planNumber);
+//
+//        }
+//        else {
+//            $f3->set("error['plan']", "Plan doesn't exist.");
+//        }
+    }
+
+
     if (isset($_POST['submit'])){
         if($_POST['plan']!=""){
             $f3->reroute('/Plan');
@@ -39,6 +55,14 @@ $f3->route('GET|POST /', function ($f3) {
 });
 
 $f3->route('GET|POST /CPU', function ($f3) {
+
+    if (($_POST['CPU']=="Yes")&&isset($_POST['submit'])) {
+        $CPU = $_POST['CPU'];
+        $_SESSION['CPU'] = $CPU;
+    }
+
+
+
     if (isset($_POST['submit']))
         $f3->reroute('/GPU');
     $template = new Template();
@@ -46,6 +70,13 @@ $f3->route('GET|POST /CPU', function ($f3) {
 });
 
 $f3->route('GET|POST /GPU', function ($f3) {
+
+    if (($_POST['GPU']=="Yes")&&isset($_POST['submit'])) {
+        $GPU = $_POST['GPU'];
+        $_SESSION['GPU'] = $GPU;
+    }
+
+
     if (isset($_POST['submit']))
         $f3->reroute('/Plan');
     $template = new Template();
@@ -53,8 +84,18 @@ $f3->route('GET|POST /GPU', function ($f3) {
 });
 
 $f3->route('GET|POST /Plan', function ($f3) {
-    if (isset($_POST['save']))
+
+    if (isset($_POST['save'])) {
+
+        $_SESSION['CPU'] = $_POST['CPU'];
+        $_SESSION['GPU'] = $_POST['GPU'];
+        $_SESSION['Motherboard'] = $_POST['Motherboard'];
+        $_SESSION['RAM'] = $_POST['RAM'];
+        $_SESSION['SSD'] = $_POST['SSD'];
+        $_SESSION['HD'] = $_POST['HD'];
+
         $f3->reroute('/Save');
+    }
     $template = new Template();
     echo $template->render('views/Plan.html');
 });
