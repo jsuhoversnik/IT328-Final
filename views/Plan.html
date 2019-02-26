@@ -215,15 +215,33 @@
 </div>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
-    $("#CPU").on("click", function () {
-        $("#planTable").load("CPUtable.html");
-    });
+    // $("#CPU").on("click", function () {
+    //     $("#planTable").load("CPUtable.html");
+    // });
+
+    var type="";
+    var budget="";
+
     $("#Game").on("click", function () {
-         $("#500").on("click", function () {
-            $("#CPU").html("i3 7100");
-            $("#CPUcost").html("$100");
-         });
+        type="game";
+         // $("#500").on("click", function () {
+         //    $("#CPU").html("i3 7100");
+         //    $("#CPUcost").html("$100");
+         // });
     });
+    $("#500").on("click", function () {
+        budget="<500";
+
+    });
+
+
+    if(type=="game"&& budget=="<500"){
+        $("#CPU").html("i3 7100");
+        $("#CPUcost").html("$100");
+    }
+
+
+
 
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
