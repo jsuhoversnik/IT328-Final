@@ -27,15 +27,15 @@
                             <tr>
                                 <td>CPU:</td>
                                 <td>
-                                    <button type="button" class="btn" name="CPU" id="CPU">CPU</button>
+                                    <button type="button" class="btn" name="CPU" id="CPU"></button>
                                 </td>
-                                <td>$</td>
+                                <td id="CPUcost">$</td>
 
                             </tr>
                             <tr>
                                 <td>Motherboard:</td>
                                 <td>
-                                    <button type="button" class="btn" name="Motherboard"></button>
+                                    <button type="button" class="btn" name="Motherboard" id="Motherboard"></button>
                                 </td>
                                 <td>$</td>
                                 <!--<td>CPU: {{ @SESSION['plan']->getMotherboard() }}</td>-->
@@ -43,7 +43,7 @@
                             <tr>
                                 <td>GPU:</td>
                                 <td>
-                                    <button type="button" class="btn" name="GPU"></button>
+                                    <button type="button" class="btn" name="GPU" id="GPU"></button>
                                 </td>
                                 <td>$</td>
                                 <!--<td>GPU: {{ @SESSION['plan']->getGPU() }}</td>-->
@@ -51,7 +51,7 @@
                             <tr>
                                 <td>RAM:</td>
                                 <td>
-                                    <button type="button" class="btn" name="RAM"></button>
+                                    <button type="button" class="btn" name="RAM" id="RAM"></button>
                                 </td>
                                 <td>$</td>
                                 <!--<td>RAM: {{ @SESSION['plan']->getRAM() }}</td>-->
@@ -59,7 +59,7 @@
                             <tr>
                                 <td>SSD:</td>
                                 <td>
-                                    <button type="button" class="btn" name="SSD"></button>
+                                    <button type="button" class="btn" name="SSD" id="SSD"></button>
                                 </td>
                                 <td>$</td>
                                 <!--<td>SSD: {{ @SESSION['plan']->getSSD() }}</td>-->
@@ -67,66 +67,72 @@
                             <tr>
                                 <td>HD:</td>
                                 <td>
-                                    <button type="button" class="btn" name="HD"></button>
+                                    <button type="button" class="btn" name="HD" id="HD"></button>
                                 </td>
                                 <td>$</td>
                                 <!--<td>HD: {{ @SESSION['plan']->getHD() }}</td>-->
                             </tr>
                             <tr>
                                 <td>Power:</td>
-                                <td> </td>
+                                <td></td>
                                 <td><input class="form-control" type="text" name="Power" id="Power"
                                            placeholder="100">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Monitor:</td>
-                                <td> </td>
+                                <td></td>
                                 <td><input class="form-control" type="text" name="Monitor" id="Monitor"
                                            placeholder="100">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Case:</td>
-                                <td> </td>
+                                <td></td>
                                 <td><input class="form-control" type="text" name="Case" id="Case"
                                            placeholder="100">
                                 </td>
                             </tr>
                             <tr>
-                                <td>mouse/keyboard/loudspeaker:</td>
-                                <td> </td>
+                                <td>other:</td>
+                                <td></td>
                                 <td><input class="form-control" type="text" name="mouse" id="mouse"
                                            placeholder="100">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Score:
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                                        <span class="sr-only">40%</span>
+                                    <br><br>CPU:
+                                    <div class="progress ">
+                                        <div class="progress-bar" role="progressbar" style="width: 25%"
+                                             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        25%
                                     </div>
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-                                        <span class="sr-only">30%</span>
+                                    <br>GPU:
+                                    <div class="progress ">
+                                        <div class="progress-bar" role="progressbar" style="width: 45%"
+                                             aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+                                        45%
                                     </div>
-
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                        <span class="sr-only">60%</span>
+                                    <br>RAM:
+                                    <div class="progress ">
+                                        <div class="progress-bar" role="progressbar" style="width: 75%"
+                                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        75%
                                     </div>
+                                    <br>
                                 </td>
-                                <td> </td>
+                                <td></td>
                                 <td>Total: $
                                 </td>
                             </tr>
-                            <button type="submit" class="btn btn-primary btn-lg" name="Save">
-                            Save
-                        </button>
+
                         </table>
 
                         <div>
-
+                            <button type="submit" class="btn btn-primary btn-lg" name="Save">
+                                Save
+                            </button>
 
                             <p>
                                 * If one part of score is much lower than other parts,
@@ -158,19 +164,47 @@
 
 
                     <div class="col-sm-4">
-                        <h3>Reference Plan</h3>
-                        <table class="table container rounded border">
-                            Type:
-                            <button type="button" class="btn btn-success">game</button>
-                            <button type="button" class="btn btn-success">school</button>
-                            <button type="button" class="btn btn-success">work</button>
-                            <button type="button" class="btn btn-success">design</button>
+                        <h3>Reference Plan</h3>Type:
+                        <table>
+                            <div class="container rounded border mb-4">
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-success"  id="Game">game</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">school</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-success">work</button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">design</button>
+                                    </td>
+                                </tr>
+                            </div>
                         </table>
-                        <table class="table container rounded border">
-                            Budget:
-                            <button type="button" class="btn btn-success"><$500</button>
-                            <button type="button" class="btn btn-success">$500-$800</button>
-                            <button type="button" class="btn btn-success">>$800</button>
+                        <br>
+                        Budget:
+                        <table>
+                            <div class="container rounded border  mb-4">
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-success" id="500"><$500</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-success">$500-$800</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button type="button" class="btn btn-success"><$800</button>
+                                    </td>
+                                </tr>
+                            </div>
                         </table>
                     </div>
 
@@ -181,9 +215,16 @@
 </div>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
-    $("#CPU").on("click",function(){
-        $("#planTable").load("CPU.html");
+    $("#CPU").on("click", function () {
+        $("#planTable").load("CPUtable.html");
     });
+    $("#Game").on("click", function () {
+        // $("#500").on("click", function () {
+            $("#CPU").val("intel");
+            $("#CPUcost").val("$100");
+        // });
+    });
+
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </body>
