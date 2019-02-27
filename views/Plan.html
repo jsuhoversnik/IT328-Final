@@ -228,20 +228,44 @@
          //    $("#CPU").html("i3 7100");
          //    $("#CPUcost").html("$100");
          // });
+
+        if(budget=="<500"){
+            $("#CPU").html("i3 7100");
+            $("#CPUcost").html("$100");
+        }
+
+        //if(budget=="500-800"){
+        //
+        //}
+
+        //if(budget==">800"){
+        //
+        //}
+
     });
     $("#500").on("click", function () {
         budget="<500";
 
+        //your if statment had no way of running
+        //by putting if statements inside of the function
+        //we know the value of budget and can set values based on game value
+        if(type=="game"){
+            $("#CPU").html("i3 7100");
+            $("#CPUcost").html("$100");
+        }
+
+        //if(type=="school"){
+        //
+        //}
+
+        //if(type=="work"){
+        //
+        //}
+
+        //if(type=="design"){
+        //
+        //}
     });
-
-
-    if(type=="game"&& budget=="<500"){
-        $("#CPU").html("i3 7100");
-        $("#CPUcost").html("$100");
-    }
-
-
-
 
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
