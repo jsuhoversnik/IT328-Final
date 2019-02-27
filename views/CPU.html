@@ -26,8 +26,8 @@
                     <br/>
                     <div class="">
                         <div class="radio">
-                            <label class="radio-inline mr-3"><input type="radio" id="CPU" name="CPU" value="Yes"> Yes</label>
-                            <label class="radio-inline"><input type="radio" name="CPU" value="No" checked > No</label>
+                            <label class="radio-inline mr-3"><input type="radio" id="Yes" name="CPU" value="Yes"> Yes</label>
+                            <label class="radio-inline"><input type="radio" id="No" name="CPU" value="No" checked > No</label>
                         </div>
                         <br/>
                         <div id="divResult"></div>
@@ -66,9 +66,19 @@
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
-    $("#CPU").on("click",function(){
+    var show=false;
+    $("#Yes").on("click",function(){
+        show=true;
         $("#divResult").load('allCPU.php');
+
     });
+    $("#No").on("click",function(){
+        show=false;
+        $("#divResult").load('');
+    });
+    if(show){
+        $("#divResult").load('allCPU.php');
+    }
 </script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

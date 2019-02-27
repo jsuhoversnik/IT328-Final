@@ -17,17 +17,17 @@
             <div>
 
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <table class="table container rounded border">
                             <tr>
                                 <td>Details</td>
-                                <td>Model Reference Price</td>
-                                <td>Price</td>
+                                <td>Model</td>
+                                <td >Price</td>
                             </tr>
                             <tr>
                                 <td>CPU:</td>
-                                <td>
-                                    <button type="button" class="btn" name="CPU" id="CPU"></button>
+                                <td >
+                                    <button type="button" class="btn text-nowrap" name="CPU" id="CPU"></button>
                                 </td>
                                 <td id="CPUcost">$</td>
 
@@ -35,68 +35,68 @@
                             <tr>
                                 <td>Motherboard:</td>
                                 <td>
-                                    <button type="button" class="btn" name="Motherboard" id="Motherboard"></button>
+                                    <button type="button" class="btn text-nowrap" name="Motherboard" id="Motherboard"></button>
                                 </td>
-                                <td>$</td>
+                                <td id="Motherboardcost">$</td>
                                 <!--<td>CPU: {{ @SESSION['plan']->getMotherboard() }}</td>-->
                             </tr>
                             <tr>
                                 <td>GPU:</td>
                                 <td>
-                                    <button type="button" class="btn" name="GPU" id="GPU"></button>
+                                    <button type="button" class="btn text-nowrap" name="GPU" id="GPU"></button>
                                 </td>
-                                <td>$</td>
+                                <td id="GPUcost">$</td>
                                 <!--<td>GPU: {{ @SESSION['plan']->getGPU() }}</td>-->
                             </tr>
                             <tr>
                                 <td>RAM:</td>
                                 <td>
-                                    <button type="button" class="btn" name="RAM" id="RAM"></button>
+                                    <button type="button" class="btn text-nowrap" name="RAM" id="RAM"></button>
                                 </td>
-                                <td>$</td>
+                                <td id="RAMcost">$</td>
                                 <!--<td>RAM: {{ @SESSION['plan']->getRAM() }}</td>-->
                             </tr>
                             <tr>
                                 <td>SSD:</td>
                                 <td>
-                                    <button type="button" class="btn" name="SSD" id="SSD"></button>
+                                    <button type="button" class="btn text-nowrap" name="SSD" id="SSD"></button>
                                 </td>
-                                <td>$</td>
+                                <td id="SSDcost">$</td>
                                 <!--<td>SSD: {{ @SESSION['plan']->getSSD() }}</td>-->
                             </tr>
                             <tr>
                                 <td>HD:</td>
                                 <td>
-                                    <button type="button" class="btn" name="HD" id="HD"></button>
+                                    <button type="button" class="btn text-nowrap" name="HD" id="HD"></button>
                                 </td>
-                                <td>$</td>
+                                <td id="HDcost">$</td>
                                 <!--<td>HD: {{ @SESSION['plan']->getHD() }}</td>-->
                             </tr>
                             <tr>
                                 <td>Power:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="Power" id="Power"
+                                <td><input class="form-control" type="text" name="Power" id="Powercost"
                                            placeholder="100">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Monitor:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="Monitor" id="Monitor"
-                                           placeholder="100">
+                                <td><input class="form-control" type="text" name="Monitor" id="Monitorcost"
+                                           placeholder="0">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Case:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="Case" id="Case"
-                                           placeholder="100">
+                                <td><input class="form-control" type="text" name="Case" id="Casecost"
+                                           placeholder="0">
                                 </td>
                             </tr>
                             <tr>
-                                <td>other:</td>
+                                <td>Other:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="mouse" id="mouse"
+                                <td><input class="form-control" type="text" name="mouse" id=Othercost"
                                            placeholder="100">
                                 </td>
                             </tr>
@@ -141,7 +141,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <table class="table container rounded border" id="planTable">
                             <tr>
                                 <td>model</td>
@@ -163,7 +163,7 @@
                     </div>
 
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-2">
                         <h3>Reference Plan</h3>Type:
                         <table>
                             <div class="container rounded border mb-4">
@@ -172,15 +172,15 @@
                                         <button type="button" class="btn btn-success"  id="Game">game</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success">school</button>
+                                        <button type="button" class="btn btn-success" id="School">school</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn btn-success">work</button>
+                                        <button type="button" class="btn btn-success" id="Work">work</button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success">design</button>
+                                        <button type="button" class="btn btn-success" id="Design">design</button>
                                     </td>
                                 </tr>
                             </div>
@@ -196,12 +196,12 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn btn-success">$500-$800</button>
+                                        <button type="button" class="btn btn-success" id="800">$500-$800</button>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button type="button" class="btn btn-success"><$800</button>
+                                        <button type="button" class="btn btn-success" id="1000"><$800</button>
                                     </td>
                                 </tr>
                             </div>
@@ -221,50 +221,294 @@
 
     var type="";
     var budget="";
-
-    $("#Game").on("click", function () {
-        type="game";
-         // $("#500").on("click", function () {
-         //    $("#CPU").html("i3 7100");
-         //    $("#CPUcost").html("$100");
-         // });
+    $("#School").on("click", function () {
+        type = "school";
 
         if(budget=="<500"){
-            $("#CPU").html("i3 7100");
-            $("#CPUcost").html("$100");
+            $("#CPU").html("Intel Core i3 7100");
+            $("#CPUcost").html("110");
+
+            $("#Motherboard").html("ASUS EX-B250M-V3");
+            $("#Motherboardcost").html("70");
+
+            $("#RAM").html("Kingston Low Voltage Edition 4GB DDR4 2400 (KVR24N17S8/4)");
+            $("#RAMcost").html("80");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#GPUcost").html("60");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
         }
 
-        //if(budget=="500-800"){
-        //
-        //}
+        if(budget=="500-800"){
+            $("#CPU").html("Intel Core i5 8400");
+            $("#CPUcost").html("180");
 
-        //if(budget==">800"){
-        //
-        //}
+            $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboardcost").html("80");
+
+            $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAMcost").html("100");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSDcost").html("70");
+
+            $("#GPU").html("ASUS DUAL-GTX 1050Ti-4G");
+            $("#GPUcost").html("180");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
+        }
+
+        if(budget==">800"){
+            $("#CPU").html("Intel Core i5 8400");
+            $("#CPUcost").html("180");
+
+            $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboardcost").html("80");
+
+            $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAMcost").html("100");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSDcost").html("70");
+
+            $("#GPU").html("Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
+            $("#GPUcost").html("480");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
+        }
 
     });
+    $("#Game").on("click", function () {
+        type="game";
+        if(budget=="<500"){
+            $("#CPU").html("Intel Core i5 8400");
+            $("#CPUcost").html("180");
+
+            $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboardcost").html("80");
+
+            $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAMcost").html("100");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSDcost").html("70");
+
+            $("#GPU").html("Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
+            $("#GPUcost").html("480");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
+        }
+        if(budget=="500-800"){
+            $("#CPU").html("Intel Core i5 8400");
+            $("#CPUcost").html("180");
+
+            $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboardcost").html("80");
+
+            $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAMcost").html("100");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSDcost").html("70");
+
+            $("#GPU").html("Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
+            $("#GPUcost").html("480");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
+        }
+        if(budget==">800"){
+            $("#CPU").html("Intel Core i5 8400");
+            $("#CPUcost").html("180");
+
+            $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboardcost").html("80");
+
+            $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAMcost").html("100");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSDcost").html("70");
+
+            $("#GPU").html("Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
+            $("#GPUcost").html("480");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
+        }
+    });
+
+    $("#Work").on("click", function () {
+        type = "work";
+        if(budget=="<500"){
+
+        }
+        if(budget=="500-800"){
+
+        }
+        if(budget==">800"){
+
+        }
+    });
+
+    $("#Design").on("click", function () {
+        type = "design";
+        if(budget=="<500"){
+
+        }
+        if(budget=="500-800"){
+
+        }
+        if(budget==">800"){
+
+        }
+    });
+
+
     $("#500").on("click", function () {
         budget="<500";
 
         //your if statment had no way of running
         //by putting if statements inside of the function
         //we know the value of budget and can set values based on game value
-        if(type=="game"){
-            $("#CPU").html("i3 7100");
-            $("#CPUcost").html("$100");
+        if(type =="school"){
+            $("#CPU").html("Intel Core i3 7100");
+            $("#CPUcost").html("110");
+
+            $("#Motherboard").html("ASUS EX-B250M-V3");
+            $("#Motherboardcost").html("70");
+
+            $("#RAM").html("Kingston Low Voltage Edition 4GB DDR4 2400 (KVR24N17S8/4)");
+            $("#RAMcost").html("80");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#GPUcost").html("60");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
         }
 
-        //if(type=="school"){
-        //
-        //}
+        if(type=="game"){
 
-        //if(type=="work"){
-        //
-        //}
+        }
 
-        //if(type=="design"){
-        //
-        //}
+        if(type=="work"){
+
+        }
+
+        if(type=="design"){
+
+        }
+    });
+
+    $("#800").on("click", function () {
+        budget = "500-800";
+
+        if(type =="school"){
+            $("#CPU").html("Intel Core i5 8400");
+            $("#CPUcost").html("180");
+
+            $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboardcost").html("80");
+
+            $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAMcost").html("100");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSDcost").html("70");
+
+            $("#GPU").html("ASUS DUAL-GTX 1050Ti-4G");
+            $("#GPUcost").html("180");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
+        }
+
+        if(type=="game"){
+
+        }
+
+        if(type=="work"){
+
+        }
+
+        if(type=="design"){
+
+        }
+    });
+
+    $("#1000").on("click", function () {
+        budget = ">800";
+        if(type =="school"){
+            $("#CPU").html("Intel Core i5 8400");
+            $("#CPUcost").html("180");
+
+            $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboardcost").html("80");
+
+            $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAMcost").html("100");
+
+            $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HDcost").html("40");
+
+            $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSDcost").html("70");
+
+            $("#GPU").html("Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
+            $("#GPUcost").html("480");
+
+            $("#Powercost").val("40");
+
+            $("#Othercost").val("100");
+        }
+
+        if(type=="game"){
+
+        }
+
+        if(type=="work"){
+
+        }
+
+        if(type=="design"){
+
+        }
     });
 
 </script>
