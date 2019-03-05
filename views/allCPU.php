@@ -1,5 +1,6 @@
 <?php
 
+
 echo"<div class='col-10 ml-5'>
     <input class='form-control' name='CPUchoice' list='CPUchoice'>
 </div>
@@ -14,3 +15,6 @@ echo"<div class='col-10 ml-5'>
     <option value=\"Intel Core i7-6900K @ 3.20GHz\">
 
 </datalist>";
+
+?>
+

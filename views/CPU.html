@@ -66,19 +66,15 @@
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
-    var show=false;
+
     $("#Yes").on("click",function(){
-        show=true;
-        $("#divResult").load('allCPU.php');
+        $("#divResult").load('views/allCPU.php');
 
     });
     $("#No").on("click",function(){
-        show=false;
-        $("#divResult").load('');
+        $("#divResult").html("")    ;
     });
-    if(show){
-        $("#divResult").load('allCPU.php');
-    }
+
 </script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
