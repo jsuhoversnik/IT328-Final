@@ -26,25 +26,26 @@
                     <br/>
                     <div class="">
                         <div class="radio">
-                            <label class="radio-inline mr-3"><input type="radio" id="GPU" name="GPU" value="Yes"> Yes</label>
-                            <label class="radio-inline"><input type="radio" name="GPU" value="No" checked > No</label>
+                            <label class="radio-inline mr-3"><input type="radio" id="Yes" name="GPU" value="Yes"> Yes</label>
+                            <label class="radio-inline"><input type="radio" id="No" name="GPU" value="No" checked > No</label>
                         </div>
                         <br/>
-                        <div class="col-10 ml-5">
-                            <!--TODO add javascript to hide input field if 'no' is selected-->
-                            <input class="form-control" name="GPUchoice" list="GPUchoice">
-                        </div>
-                        <datalist id="GPUchoice">
-                            <option value="TITAN Xp COLLECTORS EDITION">
-                            <option value="GeForce GTX 1080 Ti">
-                            <option value="NVIDIA TITAN Xp">
-                            <option value="Radeon Pro Vega 64">
-                            <option value="TITAN V">
-                            <option value="GeForce GTX 1070 Ti">
-                            <option value="GeForce GTX 1080">
-                            <option value="GeForce GTX 980 Ti">
+                        <div id="divResult"></div>
+                        <!--<div class="col-10 ml-5">-->
+                            <!--&lt;!&ndash;TODO add javascript to hide input field if 'no' is selected&ndash;&gt;-->
+                            <!--<input class="form-control" name="GPUchoice" list="GPUchoice">-->
+                        <!--</div>-->
+                        <!--<datalist id="GPUchoice">-->
+                            <!--<option value="TITAN Xp COLLECTORS EDITION">-->
+                            <!--<option value="GeForce GTX 1080 Ti">-->
+                            <!--<option value="NVIDIA TITAN Xp">-->
+                            <!--<option value="Radeon Pro Vega 64">-->
+                            <!--<option value="TITAN V">-->
+                            <!--<option value="GeForce GTX 1070 Ti">-->
+                            <!--<option value="GeForce GTX 1080">-->
+                            <!--<option value="GeForce GTX 980 Ti">-->
 
-                        </datalist>
+                        <!--</datalist>-->
                     </div>
                 </div>
                 <div class="col-6">
@@ -63,6 +64,19 @@
         </form>
     </div>
 </div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+
+    $("#Yes").on("click",function(){
+        $("#divResult").load('{{ @BASE }}/gpuList');
+
+    });
+    $("#No").on("click",function(){
+        $("#divResult").html("");
+    });
+
+</script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </body>

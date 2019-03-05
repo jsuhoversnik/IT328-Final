@@ -130,6 +130,19 @@ $f3->route('GET /cpuList', function($f3)
     $f3->set('hardware', $hardware);
 
     $template = new Template();
+    echo $template->render('views/allCPU.php');
+});
+
+$f3->route('GET /allcpu', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getHardware("cpu");
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
     echo $template->render('views/parts.html');
 });
 
@@ -143,7 +156,7 @@ $f3->route('GET /gpuList', function($f3)
     $f3->set('hardware', $hardware);
 
     $template = new Template();
-    echo $template->render('views/parts.html');
+    echo $template->render('views/allGPU.php');
 });
 
 $f3->route('GET /ramList', function($f3)

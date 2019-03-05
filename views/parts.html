@@ -11,23 +11,17 @@
 </head>
 <body>
 
-<h1>Hardware</h1>
-
-<table class="table">
+<table class="table border">
     <thead>
     <tr>
-        <th scope="col">Type</th>
         <th scope="col">Part Name</th>
         <th scope="col">Price</th>
         <th scope="col">Performance</th>
-        <th scope="col">Part Set</th>
     </tr>
     </thead>
     <tbody>
     <repeat group="{{ @hardware }}" value="{{ @part }}">
         <tr>
-            <th scope="row">{{ @part['type'] }}</th>
-
             <td>
                 <a href="{{ @BASE }}/hardwareList/{{ @part['partName'] }}">
                     {{ @part['partName'] }}
@@ -36,7 +30,6 @@
 
             <td>{{ @part['price'] }}</td>
             <td>{{ @part['performance'] }}</td>
-            <td>{{ @part['partSet'] }}</td>
 
         </tr>
     </repeat>

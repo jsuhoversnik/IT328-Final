@@ -1,20 +1,25 @@
-<?php
-
-
-echo"<div class='col-10 ml-5'>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class='col-10 ml-5'>
     <input class='form-control' name='CPUchoice' list='CPUchoice'>
 </div>
-<datalist id='CPUchoice'>
-    <option value=\"Intel Xeon Platinum 8173M @ 2.00GHz\">
-    <option value=\"Intel Xeon Gold 6154 @ 3.00GHz\">
-    <option value=\"Intel Core i9-7980XE @ 2.60GHz\">
-    <option value=\"Intel Core i7-7820X @ 3.60GHz\">
-    <option value=\"Intel Xeon E5-2680 v3 @ 2.50GHz\">
-    <option value=\"Intel Core i7-7900X @ 3.30GHz\">
-    <option value=\"AMD EPYC 7401P\">
-    <option value=\"Intel Core i7-6900K @ 3.20GHz\">
+    <datalist id='CPUchoice'>
 
-</datalist>";
+        <repeat group="{{ @hardware }}" value="{{ @part }}">
 
-?>
+                <option value="{{ @part['partName'] }} ">
+                </option>
 
+        </repeat>
+
+    </datalist>
+</body>
+</html>

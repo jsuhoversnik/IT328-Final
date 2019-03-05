@@ -27,7 +27,7 @@
                             <tr>
                                 <td>CPU:</td>
                                 <td >
-                                    <button type="button" class="btn text-nowrap" name="CPU" id="CPU"></button>
+                                    <button type="button" class="btn text-nowrap" name="CPU" id="CPU">Button</button>
                                 </td>
                                 <td id="CPUcost">$</td>
 
@@ -38,7 +38,7 @@
                                     <button type="button" class="btn text-nowrap" name="Motherboard" id="Motherboard"></button>
                                 </td>
                                 <td id="Motherboardcost">$</td>
-                                <!--<td>CPU: {{ @SESSION['plan']->getMotherboard() }}</td>-->
+
                             </tr>
                             <tr>
                                 <td>GPU:</td>
@@ -46,7 +46,6 @@
                                     <button type="button" class="btn text-nowrap" name="GPU" id="GPU"></button>
                                 </td>
                                 <td id="GPUcost">$</td>
-                                <!--<td>GPU: {{ @SESSION['plan']->getGPU() }}</td>-->
                             </tr>
                             <tr>
                                 <td>RAM:</td>
@@ -54,7 +53,6 @@
                                     <button type="button" class="btn text-nowrap" name="RAM" id="RAM"></button>
                                 </td>
                                 <td id="RAMcost">$</td>
-                                <!--<td>RAM: {{ @SESSION['plan']->getRAM() }}</td>-->
                             </tr>
                             <tr>
                                 <td>SSD:</td>
@@ -62,7 +60,6 @@
                                     <button type="button" class="btn text-nowrap" name="SSD" id="SSD"></button>
                                 </td>
                                 <td id="SSDcost">$</td>
-                                <!--<td>SSD: {{ @SESSION['plan']->getSSD() }}</td>-->
                             </tr>
                             <tr>
                                 <td>HD:</td>
@@ -70,7 +67,6 @@
                                     <button type="button" class="btn text-nowrap" name="HD" id="HD"></button>
                                 </td>
                                 <td id="HDcost">$</td>
-                                <!--<td>HD: {{ @SESSION['plan']->getHD() }}</td>-->
                             </tr>
                             <tr>
                                 <td>Power:</td>
@@ -141,25 +137,9 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-sm-5">
-                        <table class="table container rounded border" id="planTable">
-                            <tr>
-                                <td>model</td>
-                                <td>score bar</td>
-                                <td>Reference Price</td>
-                            </tr>
-                            <tr>
+                    <div class="col-sm-5" id="model">
 
-                            </tr>
-                            <!--<check if (isset($_POST['CPU']))>-->
-                            <!--<tr>-->
-                            <!--<td>CPU:-->
-                            <!--<repeat group="" value="">-->
-                            <!--</repeat>-->
-                            <!--</td>-->
-                            <!--</tr>-->
-                            <!--</check>-->
-                        </table>
+
                     </div>
 
 
@@ -215,9 +195,6 @@
 </div>
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
-    // $("#CPU").on("click", function () {
-    //     $("#planTable").load("CPUtable.html");
-    // });
 
     var type="";
     var budget="";
@@ -809,6 +786,18 @@
 
             $("#Othercost").val("100");
         }
+    });
+
+    $("#CPU").on("click",function(){
+        //alert('HERE');
+
+        $("#model").load('{{ @BASE }}/allcpu');
+
+    });
+    $("#Motherboard").on("click",function(){
+        //alert('HERE');
+        $("#model").load('{{ @BASE }}/moboList');
+
     });
 
 </script>

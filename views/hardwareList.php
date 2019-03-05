@@ -11,27 +11,29 @@
 </head>
 <body>
 
-<h1>Hardware</h1>
-
 <table class="table">
     <thead>
-    <tr>
+    <tr><!--
         <th scope="col">Type</th>
+        -->
         <th scope="col">Part Name</th>
         <th scope="col">Price</th>
         <th scope="col">Performance</th>
+        <!--
         <th scope="col">Part Set</th>
+        -->
     </tr>
     </thead>
     <tbody>
     <repeat group="{{ @hardware }}" value="{{ @part }}">
         <tr>
+            <!--
             <th scope="row">
                 <a href="{{ @BASE }}/{{ @part['type'] }}List">
                 {{ @part['type'] }}
                 </a>
             </th>
-
+            -->
             <td>
                 <a href="{{ @BASE }}/hardwareList/{{ @part['partName'] }}">
                     {{ @part['partName'] }}
@@ -40,8 +42,20 @@
 
             <td>{{ @part['price'] }}</td>
             <td>{{ @part['performance'] }}</td>
+<!--            <td>-->
+<!--                <div class="progress ">-->
+<!--                    $percentage={{ @part['performance']/30641 }};-->
+<!--                    <div class="progress-bar" role="progressbar" style='width:-->
+<!--                    --><?php
+//                    echo "{{ @part['performance']/30641 }}";
+//                    ?>/*%'*/
+/*                         aria-valuenow="{{ @part['performance'] }}" aria-valuemin="0" aria-valuemax="100"></div>*/
+/*                    {{ @part['performance']/30641 }}%*/
+/*                </div>*/
+/*            </td>*/
+            <!--
             <td>{{ @part['partSet'] }}</td>
-
+            -->
         </tr>
     </repeat>
     </tbody>
