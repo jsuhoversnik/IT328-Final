@@ -107,6 +107,96 @@ $f3->route('GET|POST /Save', function ($f3) {
     echo $template->render('views/Save.html');
 });
 
+$f3->route('GET /hardware', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getAllHardware();
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
+    echo $template->render('views/hardwareList.html');
+});
+
+$f3->route('GET /cpuList', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getHardware("cpu");
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
+    echo $template->render('views/parts.html');
+});
+
+$f3->route('GET /gpuList', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getHardware("gpu");
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
+    echo $template->render('views/parts.html');
+});
+
+$f3->route('GET /ramList', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getHardware("ram");
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
+    echo $template->render('views/parts.html');
+});
+
+$f3->route('GET /hddList', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getHardware("hdd");
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
+    echo $template->render('views/parts.html');
+});
+
+$f3->route('GET /ssdList', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getHardware("ssd");
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
+    echo $template->render('views/parts.html');
+});
+
+$f3->route('GET /moboList', function($f3)
+{
+    global $dbh;
+
+    $dbh = new Database();
+
+    $hardware = $dbh->getHardware("mobo");
+    $f3->set('hardware', $hardware);
+
+    $template = new Template();
+    echo $template->render('views/parts.html');
+});
 
 //run fat free
 $f3->run();
