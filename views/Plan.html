@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Plan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 <div class="navbar">
     Computer Assembly
+
 </div>
 <div class="container rounded border">
 
@@ -27,7 +28,11 @@
                             <tr>
                                 <td>CPU:</td>
                                 <td >
-                                    <button type="button" class="btn text-nowrap" name="CPU" id="CPU">Button</button>
+
+                                    <button type="button" class="btn btn-primary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="CPU" id="CPU" title="">
+                                        Select
+                                    </button>
+
                                 </td>
                                 <td id="CPUcost">$</td>
 
@@ -64,7 +69,10 @@
                             <tr>
                                 <td>HD:</td>
                                 <td>
-                                    <button type="button" class="btn text-nowrap" name="HD" id="HD"></button>
+
+                                    <button type="button" class="btn btn-secondary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="HD" id="HD" title="">
+                                        Select a HDD
+                                    </button>
                                 </td>
                                 <td id="HDcost">$</td>
                             </tr>
@@ -196,6 +204,10 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
     var type="";
     var budget="";
     $("#School").on("click", function () {
@@ -274,6 +286,7 @@
         type="game";
         if(budget=="<500"){
             $("#CPU").html("AMD Ryzen 3 1200");
+            $("#CPU").prop('title','AMD Ryzen 3 1200');
             $("#CPUcost").html("110");
 
             $("#Motherboard").html("MSI B350M PRO-VDH");
@@ -283,6 +296,7 @@
             $("#RAMcost").html("100");
 
             $("#HD").html("Western Digital 500GB 7200 to 16MB SATA3 Blue Disk (WD5000AAKX)");
+            $("#HD").prop('title','Western Digital 500GB 7200 to 16MB SATA3 Blue Disk (WD5000AAKX)');
             $("#HDcost").html("30");
 
             $("#SSD").html("GALAXY Iron Armor (120GB)");
