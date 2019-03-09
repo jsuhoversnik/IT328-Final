@@ -15,6 +15,17 @@ $dbh = new Database();
 $hardware = $dbh->getHardware($_POST['type']); //replace cpu with passed param
 
 
+//replace magic numbers with sql query sorted my max?
+if($_POST['type'] == "cpu")
+{
+    $maxPerformance = 30641;
+} else if($_POST['type'] == "gpu"){
+    $maxPerformance = 17018;
+} else
+{
+    $maxPerformance = 17018;
+}
+
 echo "<table class=\"table border\">
     <thead>
     <tr>
@@ -32,6 +43,9 @@ echo"</tr>
 
 foreach ($hardware as $part)
 {
+
+    $performance = floor((intval($part['performance']) / $maxPerformance) * 100);
+    //echo $performance;
     echo "<tr>
             <td>
                 <a href='#'>
@@ -43,7 +57,16 @@ foreach ($hardware as $part)
 
     if($_POST['type'] == "gpu" || $_POST['type'] == "cpu")
     {
-        echo "<td> ".$part['performance']." </td>";
+        //echo "<td> ".$part['performance']." </td>";
+
+
+
+       echo' <td><div class="progress ">
+            <div class="progress-bar" role="progressbar" style="width: ' . $performance . '%" aria-valuenow="' . $performance . '" aria-valuemin="0" aria-valuemax="100"></div> ' . $performance . '%</div></td> ';
+
+
+
+
     }
     echo "</tr>";
 }
