@@ -802,17 +802,30 @@
         }
     });
 
-    $("#CPU").on("click",function(){
-        //alert('HERE');
-
-        $("#model").load('{{ @BASE }}/allcpu');
-
+    //Parts list buttons
+    $("#CPU").on("click",function()
+    {
+        $("#model").load('views/partList.php',{type:"cpu"});
     });
-    $("#Motherboard").on("click",function(){
-        //alert('HERE');
-        $("#model").html('');
-        $("#model").load('{{ @BASE }}/moboList');
-
+    $("#Motherboard").on("click",function()
+    {
+        $("#model").load('views/partList.php',{type:"mobo"});
+    });
+    $("#GPU").on("click",function()
+    {
+        $("#model").load('views/partList.php',{type:"gpu"});
+    });
+    $("#RAM").on("click",function()
+    {
+        $("#model").load('views/partList.php',{type:"ram"});
+    });
+    $("#SSD").on("click",function()
+    {
+        $("#model").load('views/partList.php',{type:"ssd"});
+    });
+    $("#HD").on("click",function()
+    {
+        $("#model").load('views/partList.php',{type:"hdd"});
     });
 
 </script>

@@ -133,19 +133,6 @@ $f3->route('GET /cpuList', function($f3)
     echo $template->render('views/allCPU.php');
 });
 
-$f3->route('GET /allcpu', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $hardware = $dbh->getHardware("cpu");
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/parts.html');
-});
-
 $f3->route('GET /gpuList', function($f3)
 {
     global $dbh;
@@ -157,58 +144,6 @@ $f3->route('GET /gpuList', function($f3)
 
     $template = new Template();
     echo $template->render('views/allGPU.php');
-});
-
-$f3->route('GET /ramList', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $hardware = $dbh->getHardware("ram");
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/parts.html');
-});
-
-$f3->route('GET /hddList', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $hardware = $dbh->getHardware("hdd");
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/parts.html');
-});
-
-$f3->route('GET /ssdList', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $hardware = $dbh->getHardware("ssd");
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/parts.html');
-});
-
-$f3->route('GET /moboList', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $hardware = $dbh->getHardware("mobo");
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/parts.html');
 });
 
 //run fat free
