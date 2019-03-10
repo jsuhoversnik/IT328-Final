@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>Plan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
 <div class="navbar">
     Computer Assembly
 
 </div>
-<div class="container rounded border">
+
+<div class="container rounded border" >
 
     <div class=" mt-4 mb-4">
         <form action="#" method="post" class="form-horizontal">
@@ -29,8 +30,16 @@
                                 <td>CPU:</td>
                                 <td >
 
+
                                     <button type="button" class="btn btn-primary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="CPU" id="CPU" title="">
-                                        Select
+
+                                        <check if="{{@SESSION.CPU}} =='Yes'">
+                                            {{ $_SESSION['CPU'] }}{{ $_SESSION['CPUchoice'] }}
+                                        </check>
+
+                                        <check if="{{@SESSION.CPU}} == No">
+                                            Select
+                                        </check>
                                     </button>
 
                                 </td>
@@ -40,7 +49,9 @@
                             <tr>
                                 <td>Motherboard:</td>
                                 <td>
-                                    <button type="button" class="btn text-nowrap" name="Motherboard" id="Motherboard"></button>
+                                    <button type="button" class="btn btn-success text-nowrap" data-toggle="tooltip" data-placement="bottom" name="Motherboard" id="Motherboard" title="">
+                                        Select
+                                    </button>
                                 </td>
                                 <td id="Motherboardcost">$</td>
 
@@ -48,21 +59,28 @@
                             <tr>
                                 <td>GPU:</td>
                                 <td>
-                                    <button type="button" class="btn text-nowrap" name="GPU" id="GPU"></button>
+                                    <button type="button" class="btn btn-info text-nowrap" data-toggle="tooltip" data-placement="bottom" name="GPU" id="GPU" title="">
+                                        Select
+                                    </button>
                                 </td>
                                 <td id="GPUcost">$</td>
                             </tr>
                             <tr>
                                 <td>RAM:</td>
                                 <td>
-                                    <button type="button" class="btn text-nowrap" name="RAM" id="RAM"></button>
+
+                                    <button type="button" class="btn btn-warning text-nowrap" data-toggle="tooltip" data-placement="bottom" name="RAM" id="RAM" title="">
+                                        Select
+                                    </button>
                                 </td>
                                 <td id="RAMcost">$</td>
                             </tr>
                             <tr>
                                 <td>SSD:</td>
                                 <td>
-                                    <button type="button" class="btn text-nowrap" name="SSD" id="SSD"></button>
+                                    <button type="button" class="btn btn-danger text-nowrap" data-toggle="tooltip" data-placement="bottom" name="SSD" id="SSD" title="">
+                                        Select
+                                    </button>
                                 </td>
                                 <td id="SSDcost">$</td>
                             </tr>
@@ -70,9 +88,11 @@
                                 <td>HD:</td>
                                 <td>
 
-                                    <button type="button" class="btn btn-secondary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="HD" id="HD" title="">
-                                        Select a HDD
+
+                                    <button type="button" class="btn btn-muted text-nowrap" data-toggle="tooltip" data-placement="bottom" name="HD" id="HD" title="">
+                                        Select
                                     </button>
+
                                 </td>
                                 <td id="HDcost">$</td>
                             </tr>
@@ -201,8 +221,13 @@
         </form>
     </div>
 </div>
+
+
+
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
+
+
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
@@ -215,15 +240,19 @@
 
         if(budget=="<500"){
             $("#CPU").html("Intel Core i3 7100");
+            $("#CPU").prop('title','Intel Core i3 7100');
             $("#CPUcost").html("110");
 
             $("#Motherboard").html("ASUS EX-B250M-V3");
+            $("#Motherboard").prop('title','ASUS EX-B250M-V3');
             $("#Motherboardcost").html("70");
 
             $("#RAM").html("Kingston Low Voltage Edition 4GB DDR4 2400 (KVR24N17S8/4)");
+            $("#RAM").prop('title',"Kingston Low Voltage Edition 4GB DDR4 2400 (KVR24N17S8/4)");
             $("#RAMcost").html("80");
 
             $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HD").prop('title',"Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
             $("#HDcost").html("40");
 
             $("#GPUcost").html("60");
@@ -235,21 +264,27 @@
 
         if(budget=="500-800"){
             $("#CPU").html("Intel Core i5 8400");
+            $("#CPU").prop('title',"Intel Core i5 8400");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboard").prop('title','ASUS EX-B250M-V3');
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAM").prop('title',"Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
             $("#RAMcost").html("100");
 
             $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HD").prop('title',"Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
             $("#HDcost").html("40");
 
             $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSD").prop('title',"Toshiba TR200 (240GB)");
             $("#SSDcost").html("70");
 
             $("#GPU").html("ASUS DUAL-GTX 1050Ti-4G");
+            $("#GPU").prop('title',"ASUS DUAL-GTX 1050Ti-4G");
             $("#GPUcost").html("180");
 
             $("#Powercost").val("40");
@@ -259,21 +294,27 @@
 
         if(budget==">800"){
             $("#CPU").html("Intel Core i5 8400");
+            $("#CPU").prop('title',"Intel Core i5 8400");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboard").prop('title','ASUS EX-B250M-V3');
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAM").prop('title',"Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
             $("#RAMcost").html("100");
 
             $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HD").prop('title',"Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
             $("#HDcost").html("40");
 
             $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSD").prop('title',"Toshiba TR200 (240GB)");
             $("#SSDcost").html("70");
 
             $("#GPU").html("Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
+            $("#GPU").prop('title',"Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
             $("#GPUcost").html("480");
 
             $("#Powercost").val("40");
@@ -290,6 +331,7 @@
             $("#CPUcost").html("110");
 
             $("#Motherboard").html("MSI B350M PRO-VDH");
+            $("#Motherboard").prop('title',"MSI B350M PRO-VDH");
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("");
@@ -300,9 +342,11 @@
             $("#HDcost").html("30");
 
             $("#SSD").html("GALAXY Iron Armor (120GB)");
+            $("#SSD").prop('title',"GALAXY Iron Armor (120GB)");
             $("#SSDcost").html("50");
 
             $("#GPU").html("Sapphire RX 460 4G D5 Super Platinum OC");
+            $("#GPU").prop('title',"Sapphire RX 460 4G D5 Super Platinum OC");
             $("#GPUcost").html("120");
 
             $("#Powercost").val("30");
@@ -311,21 +355,27 @@
         }
         if(budget=="500-800"){
             $("#CPU").html("Intel Core i5-8500 (bulk)");
+            $("#CPU").prop('title',"Intel Core i5-8500 (bulk)");
             $("#CPUcost").html("190");
 
             $("#Motherboard").html("ASUS TUF B360M-PLUS GAMING");
+            $("#Motherboard").prop('title',"ASUS TUF B360M-PLUS GAMING");
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Kingston hacker godry Fury series DDR4 2400 16G memory");
+            $("#RAM").prop('title',"Kingston hacker godry Fury series DDR4 2400 16G memory");
             $("#RAMcost").html("130");
 
             $("#HD").html("Western Digital 500GB 7200 to 16MB SATA3 Blue Disk (WD5000AAKX)");
+            $("#HD").prop('title',"Western Digital 500GB 7200 to 16MB SATA3 Blue Disk (WD5000AAKX)");
             $("#HDcost").html("30");
 
             $("#SSD").html("GALAXY Iron Armor (120GB)");
+            $("#SSD").prop('title',"GALAXY Iron Armor (120GB)");
             $("#SSDcost").html("50");
 
             $("#GPU").html("Dylan DEVIL RX590 8G");
+            $("#GPU").prop('title',"Dylan DEVIL RX590 8G");
             $("#GPUcost").html("260");
 
             $("#Powercost").val("30");
@@ -334,21 +384,27 @@
         }
         if(budget==">800"){
             $("#CPU").html("Intel Core i7-8700K (scatter)");
+            $("#CPU").prop('title',"Intel Core i7-8700K (scatter)");
             $("#CPUcost").html("350");
 
             $("#Motherboard").html("MSI Z370 TOMAHAWK Tomahawk missile motherboard");
+            $("#Motherboard").prop('title',"MSI Z370 TOMAHAWK Tomahawk missile motherboard");
             $("#Motherboardcost").html("180");
 
             $("#RAM").html("American Pirate Ship Avengers LPX DDR4 3000 8GB Memory*2");
+            $("#RAM").prop('title',"American Pirate Ship Avengers LPX DDR4 3000 8GB Memory*2");
             $("#RAMcost").html("200");
 
             $("#HD").html("Samsung PM961 256G M.2 NVMe Solid State Drive");
+            $("#HD").prop('title',"Samsung PM961 256G M.2 NVMe Solid State Drive");
             $("#HDcost").html("90");
 
             $("#SSD").html("Seagate (ST) 2TB 7200 to 64M mechanical hard driv");
+            $("#SSD").prop('title',"Seagate (ST) 2TB 7200 to 64M mechanical hard driv");
             $("#SSDcost").html("60");
 
             $("#GPU").html("MSI GTX 1080 Ti DUKE 11G Dark Dragon");
+            $("#GPU").prop('title',"MSI GTX 1080 Ti DUKE 11G Dark Dragon");
             $("#GPUcost").html("1000");
 
             $("#Powercost").val("80");
@@ -361,15 +417,19 @@
         type = "work";
         if(budget=="<500"){
             $("#CPU").html("Intel Core i3-8100 (scatter)");
+            $("#CPU").prop('title',"Intel Core i3-8100 (scatter)");
             $("#CPUcost").html("110");
 
             $("#Motherboard").html("GALAXY B360M-M.2 motherboard");
+            $("#Motherboard").prop('title',"GALAXY B360M-M.2 motherboard");
             $("#Motherboardcost").html("60");
 
             $("#RAM").html("Awesome red 8G DDR4 2400 memory ");
+            $("#RAM").prop('title',"Awesome red 8G DDR4 2400 memory ");
             $("#RAMcost").html("50");
 
             $("#HD").html("Electrode light series A750 256G solid state hard disk");
+            $("#HD").prop('title',"Electrode light series A750 256G solid state hard disk");
             $("#HDcost").html("30");
 
             $("#SSD").html("");
@@ -384,15 +444,19 @@
         }
         if(budget=="500-800"){
             $("#CPU").html("AMD Ruilong Ryzen 5 2400G (boxed)");
+            $("#CPU").prop('title',"AMD Ruilong Ryzen 5 2400G (boxed)");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASRock B450M Pro4 motherboard");
+            $("#Motherboard").prop('title',"ASRock B450M Pro4 motherboard");
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Kingston 8G DDR4 2400 memory * 2 roots (16G large memory)");
+            $("#RAM").prop('title',"Kingston 8G DDR4 2400 memory * 2 roots (16G large memory)");
             $("#RAMcost").html("140");
 
             $("#HD").html("Taipower NP800 Phantom Series NVMe 240GB M.2 Solid State Drive");
+            $("#HD").prop('title',"Taipower NP800 Phantom Series NVMe 240GB M.2 Solid State Drive");
             $("#HDcost").html("80");
 
             $("#SSD").html("");
@@ -407,21 +471,27 @@
         }
         if(budget==">800"){
             $("#CPU").html("Intel Core i7 8700K (scatter)");
+            $("#CPU").prop('title',"Intel Core i7 8700K (scatter)");
             $("#CPUcost").html("350");
 
             $("#Motherboard").html("MSI Z370 TOMAHAWK Tomahawk missile motherboard");
+            $("#Motherboard").prop('title',"MSI Z370 TOMAHAWK Tomahawk missile motherboard");
             $("#Motherboardcost").html("180");
 
             $("#RAM").html("Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
+            $("#RAM").prop('title',"Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
             $("#RAMcost").html("480");
 
             $("#HD").html("Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
+            $("#HD").prop('title',"Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
             $("#HDcost").html("110");
 
             $("#SSD").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#SSD").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#SSDcost").html("60");
 
             $("#GPU").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#GPU").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#GPUcost").html("300");
 
             $("#Powercost").val("60");
@@ -434,15 +504,19 @@
         type = "design";
         if(budget=="<500"){
             $("#CPU").html("Intel Pentium G4500 (boxed)");
+            $("#CPU").prop('title',"Intel Pentium G4500 (boxed)");
             $("#CPUcost").html("70");
 
             $("#Motherboard").html("Gigabyte H110M-DS2V motherboard (supports DDR4 memory)");
+            $("#Motherboard").prop('title',"Gigabyte H110M-DS2V motherboard (supports DDR4 memory)");
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Kingston DDR4 2133 8G ");
+            $("#RAM").prop('title',"Kingston DDR4 2133 8G ");
             $("#RAMcost").html("60");
 
             $("#HD").html("Kingston UV400 Series 120G Solid State");
+            $("#HD").prop('title',"Kingston UV400 Series 120G Solid State");
             $("#HDcost").html("40");
 
             $("#SSD").html("");
@@ -457,21 +531,26 @@
         }
         if(budget=="500-800"){
             $("#CPU").html("AMD Ruilong Ryzen 5 2600");
+            $("#CPU").prop('title',"AMD Ruilong Ryzen 5 2600");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASUS PRIME B450M-A motherboard");
+            $("#Motherboard").prop('title',"ASUS PRIME B450M-A motherboard");
             $("#Motherboardcost").html("100");
 
             $("#RAM").html("Kingston hacker god 8g ddr4 2400");
+            $("#RAM").prop('title',"Kingston hacker god 8g ddr4 2400");
             $("#RAMcost").html("60");
 
             $("#HD").html("Western Digital Green Series 240G NGFF M.2 Interface Solid State Drive");
+            $("#HD").prop('title',"Western Digital Green Series 240G NGFF M.2 Interface Solid State Drive");
             $("#HDcost").html("30");
 
             $("#SSD").html("");
             $("#SSDcost").html("0");
 
             $("#GPU").html("Sapphire RX590 8G D5 Super Platinum OC");
+            $("#GPU").prop('title',"Sapphire RX590 8G D5 Super Platinum OC");
             $("#GPUcost").html("300");
 
             $("#Powercost").val("30");
@@ -480,21 +559,27 @@
         }
         if(budget==">800"){
             $("#CPU").html("Intel Core i7 8700K (scatter)");
+            $("#CPU").prop('title',"Intel Core i7 8700K (scatter)");
             $("#CPUcost").html("350");
 
             $("#Motherboard").html("MSI Z370 TOMAHAWK Tomahawk missile motherboard");
+            $("#Motherboard").prop('title',"MSI Z370 TOMAHAWK Tomahawk missile motherboard");
             $("#Motherboardcost").html("180");
 
             $("#RAM").html("Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
+            $("#RAM").prop('title',"Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
             $("#RAMcost").html("480");
 
             $("#HD").html("Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
+            $("#HD").prop('title',"Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
             $("#HDcost").html("110");
 
             $("#SSD").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#SSD").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#SSDcost").html("60");
 
             $("#GPU").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#GPU").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#GPUcost").html("300");
 
             $("#Powercost").val("60");
@@ -512,15 +597,19 @@
         //we know the value of budget and can set values based on game value
         if(type =="school"){
             $("#CPU").html("Intel Core i3 7100");
+            $("#CPU").prop('title','Intel Core i3 7100');
             $("#CPUcost").html("110");
 
             $("#Motherboard").html("ASUS EX-B250M-V3");
+            $("#Motherboard").prop('title','ASUS EX-B250M-V3');
             $("#Motherboardcost").html("70");
 
             $("#RAM").html("Kingston Low Voltage Edition 4GB DDR4 2400 (KVR24N17S8/4)");
+            $("#RAM").prop('title',"Kingston Low Voltage Edition 4GB DDR4 2400 (KVR24N17S8/4)");
             $("#RAMcost").html("80");
 
             $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HD").prop('title',"Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
             $("#HDcost").html("40");
 
             $("#GPUcost").html("60");
@@ -531,40 +620,48 @@
         }
 
         if(type=="game"){
-            $("#CPU").html("AMD Ryzen 3 1200");
+            $("#CPU").html("Intel Core i3-8100 (scatter)");
+            $("#CPU").prop('title',"Intel Core i3-8100 (scatter)");
             $("#CPUcost").html("110");
 
-            $("#Motherboard").html("MSI B350M PRO-VDH");
-            $("#Motherboardcost").html("80");
+            $("#Motherboard").html("GALAXY B360M-M.2 motherboard");
+            $("#Motherboard").prop('title',"GALAXY B360M-M.2 motherboard");
+            $("#Motherboardcost").html("60");
 
-            $("#RAM").html("");
-            $("#RAMcost").html("100");
+            $("#RAM").html("Awesome red 8G DDR4 2400 memory ");
+            $("#RAM").prop('title',"Awesome red 8G DDR4 2400 memory ");
+            $("#RAMcost").html("50");
 
-            $("#HD").html("Western Digital 500GB 7200 to 16MB SATA3 Blue Disk (WD5000AAKX)");
+            $("#HD").html("Electrode light series A750 256G solid state hard disk");
+            $("#HD").prop('title',"Electrode light series A750 256G solid state hard disk");
             $("#HDcost").html("30");
 
-            $("#SSD").html("GALAXY Iron Armor (120GB)");
-            $("#SSDcost").html("50");
+            $("#SSD").html("");
+            $("#SSDcost").html("0");
 
-            $("#GPU").html("Sapphire RX 460 4G D5 Super Platinum OC");
-            $("#GPUcost").html("120");
+            $("#GPU").html("");
+            $("#GPUcost").html("60");
 
-            $("#Powercost").val("30");
+            $("#Powercost").val("10");
 
-            $("#Othercost").val("30");
+            $("#Othercost").val("40");
         }
 
         if(type=="work"){
             $("#CPU").html("Intel Core i3-8100 (scatter)");
+            $("#CPU").prop('title',"Intel Core i3-8100 (scatter)");
             $("#CPUcost").html("110");
 
             $("#Motherboard").html("GALAXY B360M-M.2 motherboard");
+            $("#Motherboard").prop('title',"GALAXY B360M-M.2 motherboard");
             $("#Motherboardcost").html("60");
 
             $("#RAM").html("Awesome red 8G DDR4 2400 memory ");
+            $("#RAM").prop('title',"Awesome red 8G DDR4 2400 memory ");
             $("#RAMcost").html("50");
 
             $("#HD").html("Electrode light series A750 256G solid state hard disk");
+            $("#HD").prop('title',"Electrode light series A750 256G solid state hard disk");
             $("#HDcost").html("30");
 
             $("#SSD").html("");
@@ -580,15 +677,19 @@
 
         if(type=="design"){
             $("#CPU").html("Intel Pentium G4500 (boxed)");
+            $("#CPU").prop('title',"Intel Pentium G4500 (boxed)");
             $("#CPUcost").html("70");
 
             $("#Motherboard").html("Gigabyte H110M-DS2V motherboard (supports DDR4 memory)");
+            $("#Motherboard").prop('title',"Gigabyte H110M-DS2V motherboard (supports DDR4 memory)");
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Kingston DDR4 2133 8G ");
+            $("#RAM").prop('title',"Kingston DDR4 2133 8G ");
             $("#RAMcost").html("60");
 
             $("#HD").html("Kingston UV400 Series 120G Solid State");
+            $("#HD").prop('title',"Kingston UV400 Series 120G Solid State");
             $("#HDcost").html("40");
 
             $("#SSD").html("");
@@ -608,21 +709,27 @@
 
         if(type =="school"){
             $("#CPU").html("Intel Core i5 8400");
+            $("#CPU").prop('title',"Intel Core i5 8400");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboard").prop('title','ASUS EX-B250M-V3');
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAM").prop('title',"Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
             $("#RAMcost").html("100");
 
             $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HD").prop('title',"Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
             $("#HDcost").html("40");
 
             $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSD").prop('title',"Toshiba TR200 (240GB)");
             $("#SSDcost").html("70");
 
             $("#GPU").html("ASUS DUAL-GTX 1050Ti-4G");
+            $("#GPU").prop('title',"ASUS DUAL-GTX 1050Ti-4G");
             $("#GPUcost").html("180");
 
             $("#Powercost").val("40");
@@ -632,21 +739,27 @@
 
         if(type=="game"){
             $("#CPU").html("Intel Core i5-8500 (bulk)");
+            $("#CPU").prop('title',"Intel Core i5-8500 (bulk)");
             $("#CPUcost").html("190");
 
             $("#Motherboard").html("ASUS TUF B360M-PLUS GAMING");
+            $("#Motherboard").prop('title',"ASUS TUF B360M-PLUS GAMING");
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Kingston hacker godry Fury series DDR4 2400 16G memory");
+            $("#RAM").prop('title',"Kingston hacker godry Fury series DDR4 2400 16G memory");
             $("#RAMcost").html("130");
 
             $("#HD").html("Western Digital 500GB 7200 to 16MB SATA3 Blue Disk (WD5000AAKX)");
+            $("#HD").prop('title',"Western Digital 500GB 7200 to 16MB SATA3 Blue Disk (WD5000AAKX)");
             $("#HDcost").html("30");
 
             $("#SSD").html("GALAXY Iron Armor (120GB)");
+            $("#SSD").prop('title',"GALAXY Iron Armor (120GB)");
             $("#SSDcost").html("50");
 
             $("#GPU").html("Dylan DEVIL RX590 8G");
+            $("#GPU").prop('title',"Dylan DEVIL RX590 8G");
             $("#GPUcost").html("260");
 
             $("#Powercost").val("30");
@@ -656,15 +769,19 @@
 
         if(type=="work"){
             $("#CPU").html("AMD Ruilong Ryzen 5 2400G (boxed)");
+            $("#CPU").prop('title',"AMD Ruilong Ryzen 5 2400G (boxed)");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASRock B450M Pro4 motherboard");
+            $("#Motherboard").prop('title',"ASRock B450M Pro4 motherboard");
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Kingston 8G DDR4 2400 memory * 2 roots (16G large memory)");
+            $("#RAM").prop('title',"Kingston 8G DDR4 2400 memory * 2 roots (16G large memory)");
             $("#RAMcost").html("140");
 
             $("#HD").html("Taipower NP800 Phantom Series NVMe 240GB M.2 Solid State Drive");
+            $("#HD").prop('title',"Taipower NP800 Phantom Series NVMe 240GB M.2 Solid State Drive");
             $("#HDcost").html("80");
 
             $("#SSD").html("");
@@ -680,21 +797,26 @@
 
         if(type=="design"){
             $("#CPU").html("AMD Ruilong Ryzen 5 2600");
+            $("#CPU").prop('title',"AMD Ruilong Ryzen 5 2600");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASUS PRIME B450M-A motherboard");
+            $("#Motherboard").prop('title',"ASUS PRIME B450M-A motherboard");
             $("#Motherboardcost").html("100");
 
             $("#RAM").html("Kingston hacker god 8g ddr4 2400");
+            $("#RAM").prop('title',"Kingston hacker god 8g ddr4 2400");
             $("#RAMcost").html("60");
 
             $("#HD").html("Western Digital Green Series 240G NGFF M.2 Interface Solid State Drive");
+            $("#HD").prop('title',"Western Digital Green Series 240G NGFF M.2 Interface Solid State Drive");
             $("#HDcost").html("30");
 
             $("#SSD").html("");
             $("#SSDcost").html("0");
 
             $("#GPU").html("Sapphire RX590 8G D5 Super Platinum OC");
+            $("#GPU").prop('title',"Sapphire RX590 8G D5 Super Platinum OC");
             $("#GPUcost").html("300");
 
             $("#Powercost").val("30");
@@ -707,21 +829,27 @@
         budget = ">800";
         if(type =="school"){
             $("#CPU").html("Intel Core i5 8400");
+            $("#CPU").prop('title',"Intel Core i5 8400");
             $("#CPUcost").html("180");
 
             $("#Motherboard").html("ASUS PRIME B250M-PLUS");
+            $("#Motherboard").prop('title','ASUS EX-B250M-V3');
             $("#Motherboardcost").html("80");
 
             $("#RAM").html("Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
+            $("#RAM").prop('title',"Corsair 16GB DDR4 2133 (CMV16GX4M1A2133C15)");
             $("#RAMcost").html("100");
 
             $("#HD").html("Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
+            $("#HD").prop('title',"Western Digital 1TB 7200 to 64MB SATA3 Blue Disk (WD10EZEX)");
             $("#HDcost").html("40");
 
             $("#SSD").html("Toshiba TR200 (240GB)");
+            $("#SSD").prop('title',"Toshiba TR200 (240GB)");
             $("#SSDcost").html("70");
 
             $("#GPU").html("Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
+            $("#GPU").prop('title',"Sapphire R9 290X 4G GDDR5 Platinum Edition OC");
             $("#GPUcost").html("480");
 
             $("#Powercost").val("40");
@@ -731,21 +859,27 @@
 
         if(type=="game"){
             $("#CPU").html("Intel Core i7-8700K (scatter)");
+            $("#CPU").prop('title',"Intel Core i7-8700K (scatter)");
             $("#CPUcost").html("350");
 
             $("#Motherboard").html("MSI Z370 TOMAHAWK Tomahawk missile motherboard");
+            $("#Motherboard").prop('title',"MSI Z370 TOMAHAWK Tomahawk missile motherboard");
             $("#Motherboardcost").html("180");
 
             $("#RAM").html("American Pirate Ship Avengers LPX DDR4 3000 8GB Memory*2");
+            $("#RAM").prop('title',"American Pirate Ship Avengers LPX DDR4 3000 8GB Memory*2");
             $("#RAMcost").html("200");
 
             $("#HD").html("Samsung PM961 256G M.2 NVMe Solid State Drive");
+            $("#HD").prop('title',"Samsung PM961 256G M.2 NVMe Solid State Drive");
             $("#HDcost").html("90");
 
             $("#SSD").html("Seagate (ST) 2TB 7200 to 64M mechanical hard driv");
+            $("#SSD").prop('title',"Seagate (ST) 2TB 7200 to 64M mechanical hard driv");
             $("#SSDcost").html("60");
 
             $("#GPU").html("MSI GTX 1080 Ti DUKE 11G Dark Dragon");
+            $("#GPU").prop('title',"MSI GTX 1080 Ti DUKE 11G Dark Dragon");
             $("#GPUcost").html("1000");
 
             $("#Powercost").val("80");
@@ -755,21 +889,27 @@
 
         if(type=="work"){
             $("#CPU").html("Intel Core i7 8700K (scatter)");
+            $("#CPU").prop('title',"Intel Core i7 8700K (scatter)");
             $("#CPUcost").html("350");
 
             $("#Motherboard").html("MSI Z370 TOMAHAWK Tomahawk missile motherboard");
+            $("#Motherboard").prop('title',"MSI Z370 TOMAHAWK Tomahawk missile motherboard");
             $("#Motherboardcost").html("180");
 
             $("#RAM").html("Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
+            $("#RAM").prop('title',"Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
             $("#RAMcost").html("480");
 
             $("#HD").html("Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
+            $("#HD").prop('title',"Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
             $("#HDcost").html("110");
 
             $("#SSD").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#SSD").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#SSDcost").html("60");
 
             $("#GPU").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#GPU").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#GPUcost").html("300");
 
             $("#Powercost").val("60");
@@ -779,21 +919,27 @@
 
         if(type=="design"){
             $("#CPU").html("Intel Core i7 8700K (scatter)");
+            $("#CPU").prop('title',"Intel Core i7 8700K (scatter)");
             $("#CPUcost").html("350");
 
             $("#Motherboard").html("MSI Z370 TOMAHAWK Tomahawk missile motherboard");
+            $("#Motherboard").prop('title',"MSI Z370 TOMAHAWK Tomahawk missile motherboard");
             $("#Motherboardcost").html("180");
 
             $("#RAM").html("Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
+            $("#RAM").prop('title',"Kingston hacker gods Fury series DDR4 2400 16G memory * 2 roots");
             $("#RAMcost").html("480");
 
             $("#HD").html("Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
+            $("#HD").prop('title',"Samsung 960 EVO 250G M.2 NVMe Solid State Drive");
             $("#HDcost").html("110");
 
             $("#SSD").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#SSD").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#SSDcost").html("60");
 
             $("#GPU").html("Leadtek Quadro P2000 5GB GDDR5");
+            $("#GPU").prop('title',"Leadtek Quadro P2000 5GB GDDR5");
             $("#GPUcost").html("300");
 
             $("#Powercost").val("60");

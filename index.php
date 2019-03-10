@@ -30,13 +30,15 @@ $f3->route('GET|POST /', function ($f3) {
 
     if (isset($_POST['plan'])&&isset($_POST['submit'])) {
         $planNumber = $_POST['plan'];
-//        if (validPlan($planNumber)) {
+        if (validPlan($planNumber)) {
+            $_SESSION['planNumber'] = $planNumber;
 //            $plan = new plan($planNumber);
-//
-//        }
-//        else {
-//            $f3->set("error['plan']", "Plan doesn't exist.");
-//        }
+
+            $_SESSION['CPU']=getCPU($planNumber);
+        }
+        else {
+            $f3->set("error['plan']", "Plan doesn't exist.");
+        }
     }
 
 
@@ -85,6 +87,11 @@ $f3->route('GET|POST /GPU', function ($f3) {
 
 $f3->route('GET|POST /Plan', function ($f3) {
 
+    echo $_SESSION['CPU'];
+    echo $_SESSION['CPUchoice'];
+
+
+
     if (isset($_POST['save'])) {
 
         $_SESSION['CPU'] = $_POST['CPU'];
@@ -125,6 +132,10 @@ $f3->route('GET /cpuList', function($f3)
     global $dbh;
 
     $dbh = new Database();
+
+    $CPUchoice = $_POST['CPUchoice'];
+    $_SESSION['CPUchoice'] = $CPUchoice;
+
 
     $hardware = $dbh->getHardware("cpu");
     $f3->set('hardware', $hardware);

@@ -18,7 +18,7 @@
     );
  */
 //Connect to the database
-require '/home2/jsuhover/config.php';
+require '/home/gwugreen/config.php';
 
 class Database
 {
