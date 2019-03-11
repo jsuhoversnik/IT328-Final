@@ -1,7 +1,7 @@
 <?php
 
 //Connect to the database
-require '/home/gwugreen/config.php';
+require '/home2/jsuhover/config.php';
 
 class userbase
 {
@@ -56,15 +56,43 @@ VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCa
     }
 
 
-    function getCPU($planNumber)
+    function getPart($planNumber, $part)
     {
         global $dbh;
         $dbh = $this->connect();
 
-        $sql = "SELECT cpu FROM plan WHERE planNumber= $planNumber";
-        $results = $dbh->query($sql);
+        $sql = "SELECT $part FROM plans WHERE planNumber= :planNumber";
+
+        $statement = $dbh->prepare($sql);
+        $statement->bindParam(':planNumber', $planNumber, PDO::PARAM_INT);
+        $statement->execute();
+       // $results = $dbh->query($sql);
+        $results = $statement->fetch();
+
+        //echo $results;
+
+        return $results;
+    }
+
+    function getPrice($partName)
+    {
+        global $dbh;
+        $dbh = $this->connect();
+
+        $sql = "Select price from hardware where partName = :partName ";
+
+        $statement = $dbh->prepare($sql);
+        $statement->bindParam(':partName', $partName, PDO::PARAM_INT);
+        $statement->execute();
+        // $results = $dbh->query($sql);
+        $results = $statement->fetch();
+
+        //echo $results;
 
         return $results;
     }
 
 }
+
+// select price sql
+// Select hardware.price from hardware, plans where plans.cpu=hardware.partName

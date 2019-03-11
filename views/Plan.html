@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Plan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 <div class="navbar">
@@ -31,25 +31,33 @@
                                 <td >
 
 
-                                    <button type="button" class="btn btn-primary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="CPU" id="CPU" title="">
+                                    <button type="button" class="btn btn-primary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="CPU" id="CPU" title="{{ $_SESSION['CPUchoice'] }}">
 
-                                        <check if="{{@SESSION.CPU}} =='Yes'">
-                                            {{ $_SESSION['CPU'] }}{{ $_SESSION['CPUchoice'] }}
+                                        <check if="{{@SESSION['CPU']}} =='Yes'">
+                                           {{ $_SESSION['CPUchoice'] }}
                                         </check>
 
-                                        <check if="{{@SESSION.CPU}} == 'No'">
+                                        <check if="{{@SESSION['CPU']}} == 'No'">
                                             Select
                                         </check>
                                     </button>
 
                                 </td>
-                                <td id="CPUcost">$</td>
+                    <td id="CPUcost">$ {{ $_SESSION['CPUprice'][0] }}
+                                </td>
 
                             </tr>
                             <tr>
                                 <td>Motherboard:</td>
                                 <td>
                                     <button type="button" class="btn btn-success text-nowrap" data-toggle="tooltip" data-placement="bottom" name="Motherboard" id="Motherboard" title="">
+                                        <!--<check if="{{@SESSION.Motherboard}} =='Yes'">-->
+                                            <!--{{ $_SESSION['Motherboardchoice'] }}-->
+                                        <!--</check>-->
+
+                                        <!--<check if="{{@SESSION.Motherboard}} != 'Yes'">-->
+                                            <!--Select-->
+                                        <!--</check>-->
                                         Select
                                     </button>
                                 </td>
@@ -60,7 +68,13 @@
                                 <td>GPU:</td>
                                 <td>
                                     <button type="button" class="btn btn-info text-nowrap" data-toggle="tooltip" data-placement="bottom" name="GPU" id="GPU" title="">
-                                        Select
+                                        <check if="{{@SESSION.GPU}} =='Yes'">
+                                            {{ $_SESSION['GPUchoice'] }}
+                                        </check>
+
+                                        <check if="{{@SESSION.GPU}} != 'Yes'">
+                                            Select
+                                        </check>
                                     </button>
                                 </td>
                                 <td id="GPUcost">$</td>

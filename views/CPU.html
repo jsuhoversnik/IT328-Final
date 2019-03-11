@@ -68,7 +68,8 @@
 <script>
 
     $("#Yes").on("click",function(){
-        $("#divResult").load('{{ @BASE }}/cpuList');
+        //$("#divResult").load('{{ @BASE }}/cpuList');
+        $("#divResult").load('views/CPUDatalist.php',{type:"cpu"});
 
     });
     $("#No").on("click",function(){

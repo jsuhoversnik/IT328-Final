@@ -38,9 +38,10 @@ textarea {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-
-/*body{*/
-    /*cursor:url(../images/mouse2.png),auto;*/
-    /*background: url("../images/background.gif") no-repeat;*/
-/*}*/
+/*
+body{
+    cursor:url(../images/mouse2.png),auto;
+    background: url("../images/background.gif") no-repeat;
+}
+*/
 

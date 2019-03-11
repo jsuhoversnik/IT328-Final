@@ -27,18 +27,28 @@ $f3->set('DEBUG', 3);
 require_once('model/validation-functions.php');
 $f3->route('GET|POST /', function ($f3) {
     $_SESSION = array();
+    global $userbase;
+    $userbase = new userbase();
+
 
     if (isset($_POST['plan'])&&isset($_POST['submit'])) {
         $planNumber = $_POST['plan'];
-        if (validPlan($planNumber)) {
+        //if (validPlan($planNumber)) {
             $_SESSION['planNumber'] = $planNumber;
 //            $plan = new plan($planNumber);
+            $_SESSION['CPU'] = "Yes";
+            $_SESSION['CPUchoices'] = $userbase->getPart($planNumber,"cpu");
 
-            $_SESSION['CPU']=getCPU($planNumber);
-        }
-        else {
-            $f3->set("error['plan']", "Plan doesn't exist.");
-        }
+            $_SESSION['GPU'] = "Yes";
+            $_SESSION['GPUchoices'] = $userbase->getPart($planNumber,"gpu");
+
+            $_SESSION['CPUchoice']=$_SESSION['CPUchoices'][0];
+            $_SESSION['GPUchoice']=$_SESSION['GPUchoices'][0];
+            //print_r($_SESSION['CPUchoice']);
+       // }
+        //else {
+        //    $f3->set("error['plan']", "Plan doesn't exist.");
+        //}
     }
 
 
@@ -59,8 +69,14 @@ $f3->route('GET|POST /', function ($f3) {
 $f3->route('GET|POST /CPU', function ($f3) {
 
     if (($_POST['CPU']=="Yes")&&isset($_POST['submit'])) {
-        $CPU = $_POST['CPU'];
-        $_SESSION['CPU'] = $CPU;
+        //$CPU = $_POST['CPU'];
+        //$_SESSION['CPU'] = $CPU;
+
+        $CPUchoice = $_POST['CPUchoice'];
+        $_SESSION['CPUchoice'] = $CPUchoice;
+    }else if(($_POST['CPU']=="No")&&isset($_POST['submit']))
+    {
+        $_SESSION['CPU'] = "No";
     }
 
 
@@ -73,9 +89,16 @@ $f3->route('GET|POST /CPU', function ($f3) {
 
 $f3->route('GET|POST /GPU', function ($f3) {
 
+    print_r($_SESSION);
     if (($_POST['GPU']=="Yes")&&isset($_POST['submit'])) {
-        $GPU = $_POST['GPU'];
-        $_SESSION['GPU'] = $GPU;
+        //$GPU = $_POST['GPU'];
+       // $_SESSION['GPU'] = $GPU;
+
+        $GPUchoice = $_POST['GPUchoice'];
+        $_SESSION['GPUchoice'] = $GPUchoice;
+    }else if(($_POST['GPU']=="No")&&isset($_POST['submit']))
+    {
+        $_SESSION['GPU'] = "No";
     }
 
 
@@ -87,8 +110,19 @@ $f3->route('GET|POST /GPU', function ($f3) {
 
 $f3->route('GET|POST /Plan', function ($f3) {
 
-    echo $_SESSION['CPU'];
-    echo $_SESSION['CPUchoice'];
+    print_r($_SESSION);
+    //echo $_SESSION['CPU'];
+    //echo $_SESSION['CPUchoice'];
+
+    global $userbase;
+    $userbase = new userbase();
+
+    if(isset( $_SESSION['CPUchoice']))
+    {
+
+
+        $_SESSION['CPUprice'] = $userbase->getPrice($_SESSION['CPUchoice']);
+    }
 
 
 
@@ -149,6 +183,10 @@ $f3->route('GET /gpuList', function($f3)
     global $dbh;
 
     $dbh = new Database();
+
+    $GPUchoice = $_POST['GPUchoice'];
+    $_SESSION['GPUchoice'] = $GPUchoice;
+
 
     $hardware = $dbh->getHardware("gpu");
     $f3->set('hardware', $hardware);

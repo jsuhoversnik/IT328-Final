@@ -69,7 +69,8 @@
 <script>
 
     $("#Yes").on("click",function(){
-        $("#divResult").load('{{ @BASE }}/gpuList');
+       // $("#divResult").load('{{ @BASE }}/gpuList');
+        $("#divResult").load('views/GPUDatalist.php',{type:"gpu"});
 
     });
     $("#No").on("click",function(){
