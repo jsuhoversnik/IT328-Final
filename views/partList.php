@@ -6,14 +6,13 @@
  * Time: 7:17 PM
  */
 
-//ask Tina if theres a way to avoid this,
-//possibly not because we load this file with a .load call
 require_once('../model/database.php');
 
 $dbh = new Database();
 
-$hardware = $dbh->getHardware($_POST['type']); //replace cpu with passed param
+$hardware = $dbh->getHardware($_POST['type']);
 
+$invalidChars = array(" ", "(", ")", ".", "/");
 
 //replace magic numbers with sql query sorted my max?
 if($_POST['type'] == "cpu")
@@ -23,6 +22,7 @@ if($_POST['type'] == "cpu")
     $maxPerformance = 17018;
 } else
 {
+    //TODO change this to ram max performance
     $maxPerformance = 17018;
 }
 
@@ -43,12 +43,14 @@ echo"</tr>
 
 foreach ($hardware as $part)
 {
+    $name = $part['partName'];
+    $id = str_replace($invalidChars,"",$name);
 
     $performance = floor((intval($part['performance']) / $maxPerformance) * 100);
     //echo $performance;
     echo "<tr>
             <td>
-                <a href='#'>
+                <a href='#' id='$id'>
                    ". $part['partName'] ."
                 </a>
             </td>
@@ -73,3 +75,42 @@ foreach ($hardware as $part)
 
 echo "</tbody>
 </table>";
+
+$type = strtoupper($_POST['type']);
+
+
+if($type == "MOBO")
+{
+    $type = "Motherboard";
+} else if($type == "HDD")
+{
+    $type = "HD";
+}
+
+//build a jquery onclick event for each item in the table
+foreach ($hardware as $part)
+{
+    $name = $part['partName'];
+
+    $id = str_replace($invalidChars,"",$name);
+    $performance = floor((intval($part['performance']) / $maxPerformance) * 100);
+    $price = $part['price'];
+
+
+    $progressBar = '<div class="progress "><div class="progress-bar" role="progressbar" style="width: ' . $performance . '%" aria-valuenow="' . $performance . '" aria-valuemin="0" aria-valuemax="100"></div> ' . $performance . '%</div>';
+
+    echo "<script>
+             $('#$id').on('click',function()
+            {
+                //alert('here');
+                $('#$type').html('$name');
+                $('#$type').prop('title','$name');
+                
+                $('#".$type."cost').html('$price');
+
+                $('#".$type."progress').html('$progressBar'); 
+
+                   
+            });
+        </script>";
+}

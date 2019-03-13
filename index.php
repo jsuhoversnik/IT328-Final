@@ -16,7 +16,6 @@ require_once('vendor/autoload.php');
 require('classes/plan.php');
 
 session_start();
-//print_r($_SESSION);
 //fat free framework
 
 $f3 = Base::instance();
@@ -124,7 +123,7 @@ $f3->route('GET|POST /CPU', function ($f3) {
 
 $f3->route('GET|POST /GPU', function ($f3) {
 
-    print_r($_SESSION);
+    //print_r($_SESSION);
     if (($_POST['GPU']=="Yes")&&isset($_POST['submit'])) {
         //$GPU = $_POST['GPU'];
        // $_SESSION['GPU'] = $GPU;
@@ -143,54 +142,35 @@ $f3->route('GET|POST /GPU', function ($f3) {
     echo $template->render('views/GPU.html');
 });
 
-$f3->route('GET|POST /Plan', function ($f3) {
-
-    print_r($_SESSION);
-    //echo $_SESSION['CPU'];
-    //echo $_SESSION['CPUchoice'];
-
+$f3->route('GET|POST /Plan', function ($f3)
+{
     global $userbase;
     $userbase = new userbase();
 
     if(isset( $_SESSION['CPUchoice']))
     {
-
-
         $_SESSION['CPUprice'] = $userbase->getPrice($_SESSION['CPUchoice']);
     }
     if(isset( $_SESSION['Motherboardchoice']))
     {
-
-
         $_SESSION['Motherboardcost'] = $userbase->getPrice($_SESSION['Motherboardchoice']);
     }
     if(isset( $_SESSION['GPUchoice']))
     {
-
-
         $_SESSION['GPUcost'] = $userbase->getPrice($_SESSION['GPUchoice']);
     }
     if(isset( $_SESSION['RAMchoice']))
     {
-
-
         $_SESSION['RAMcost'] = $userbase->getPrice($_SESSION['RAMchoice']);
     }
     if(isset( $_SESSION['SSDchoice']))
     {
-
-
         $_SESSION['SSDcost'] = $userbase->getPrice($_SESSION['SSDchoice']);
     }
     if(isset( $_SESSION['HDchoice']))
     {
-
-
         $_SESSION['HDcost'] = $userbase->getPrice($_SESSION['HDchoice']);
     }
-
-
-
 
 
     $_SESSION['total']=$_SESSION['CPUprice'][0]+ $_SESSION['Motherboardcost'][0]+$_SESSION['GPUcost'][0]
@@ -227,53 +207,6 @@ $f3->route('GET|POST /Save', function ($f3) {
         $f3->reroute('/Plan');
     $template = new Template();
     echo $template->render('views/Save.html');
-});
-
-$f3->route('GET /hardware', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $hardware = $dbh->getAllHardware();
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/hardwareList.html');
-});
-
-$f3->route('GET /cpuList', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $CPUchoice = $_POST['CPUchoice'];
-    $_SESSION['CPUchoice'] = $CPUchoice;
-
-
-    $hardware = $dbh->getHardware("cpu");
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/allCPU.php');
-});
-
-$f3->route('GET /gpuList', function($f3)
-{
-    global $dbh;
-
-    $dbh = new Database();
-
-    $GPUchoice = $_POST['GPUchoice'];
-    $_SESSION['GPUchoice'] = $GPUchoice;
-
-
-    $hardware = $dbh->getHardware("gpu");
-    $f3->set('hardware', $hardware);
-
-    $template = new Template();
-    echo $template->render('views/allGPU.php');
 });
 
 //run fat free

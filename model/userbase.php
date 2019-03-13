@@ -1,7 +1,8 @@
 <?php
 
 //Connect to the database
-require '/home/gwugreen/config.php';
+//require '/home/gwugreen/config.php';
+require '/home2/jsuhover/config.php';
 
 class userbase
 {
