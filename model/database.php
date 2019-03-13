@@ -1,24 +1,7 @@
 <?php
 
-/*
- * CREATE TABLE Members(
-  `member_id` int(11) NOT NULL,
-  `fname` varchar(50) DEFAULT NULL,
-  `lname` varchar(50) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `gender` varchar(6) DEFAULT NULL,
-  `phone` varchar(12) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `state` varchar(18) DEFAULT NULL,
-  `seeking` varchar(6) DEFAULT NULL,
-  `bio` varchar(255) DEFAULT NULL,
-  `premium` tinyint(4) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `interests` varchar(255) DEFAULT NULL
-    );
- */
 //Connect to the database
-require '/home2/jsuhover/config.php';
+require '/home/gwugreen/config.php';
 
 class Database
 {
@@ -107,5 +90,23 @@ class Database
 
         // if not premium we dont need some fields
         return $result;
+    }
+
+    function getPerformance($partName)
+    {
+        global $dbh;
+        $dbh = $this->connect();
+
+        $sql = "Select performance from hardware where partName = :partName ";
+
+        $statement = $dbh->prepare($sql);
+        $statement->bindParam(':partName', $partName, PDO::PARAM_INT);
+        $statement->execute();
+        // $results = $dbh->query($sql);
+        $results = $statement->fetch();
+
+        //echo $results;
+
+        return $results;
     }
 }

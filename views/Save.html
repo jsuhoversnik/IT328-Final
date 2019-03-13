@@ -5,26 +5,30 @@
     <title>Save Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles/styles2.css">
 </head>
 <body>
 <div class="navbar">
     Computer Assembly
+    <div class="text-center">
+        <img src="../images/logo3.gif" alt="">
+    </div>
 </div>
 <hr>
 <br/>
-<div class="container rounded border">
-    <div class="row mt-2 mb-2">
+<div class="container rounded border" id="contain">
+    <div class="mt-2 mb-2">
         <form action="#" method="post" class="form-horizontal">
             <div class="text-center">
 
                 <h1>Save Successful</h1>
-                <h3>Your Plan # is </h3>
+                <h3>Your Plan # is {{ $_SESSION['planNumber'] }}</h3>
             </div>
 
             <div class="text-center">
 
                 <button type="submit" class="btn btn-primary btn-lg" name="return">
-                    return
+                    Return
                 </button>
             </div>
 

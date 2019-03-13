@@ -45,3 +45,16 @@ body{
 }
 */
 
+body{
+    background: url("../images/background4.jpg") no-repeat;
+    background-size:100% 100%;
+    background-attachment: fixed;
+}
+
+
+#mainContain{
+    background: url("../images/background5.jpg") no-repeat;
+    background-size:100% 100%;
+    background-attachment: fixed;
+}
+

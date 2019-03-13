@@ -5,6 +5,7 @@
     <title>Plan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles2.css">
 </head>
 <body>
 <div class="navbar">
@@ -12,7 +13,7 @@
 
 </div>
 
-<div class="container rounded border" >
+<div class="container rounded border" id="mainContain">
 
     <div class=" mt-4 mb-4">
         <form action="#" method="post" class="form-horizontal">
@@ -43,78 +44,113 @@
                                     </button>
 
                                 </td>
-                    <td id="CPUcost">$ {{ $_SESSION['CPUprice'][0] }}
+                    <td id="CPUcost">{{ $_SESSION['CPUprice'][0] }}
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>Motherboard:</td>
                                 <td>
-                                    <button type="button" class="btn btn-success text-nowrap" data-toggle="tooltip" data-placement="bottom" name="Motherboard" id="Motherboard" title="">
-                                        <!--<check if="{{@SESSION.Motherboard}} =='Yes'">-->
-                                            <!--{{ $_SESSION['Motherboardchoice'] }}-->
-                                        <!--</check>-->
+                                    <button type="button" class="btn btn-success text-nowrap" data-toggle="tooltip" data-placement="bottom" name="Motherboard" id="Motherboard" title="{{ $_SESSION['Motherboardchoice'] }}">
+                                        <check if="{{@SESSION['Motherboard']}} =='Yes'">
+                                        {{ $_SESSION['Motherboardchoice'] }}
+                                    </check>
 
-                                        <!--<check if="{{@SESSION.Motherboard}} != 'Yes'">-->
-                                            <!--Select-->
-                                        <!--</check>-->
-                                        Select
+                                        <check if="{{@SESSION['Motherboard']}} == 'No'">
+                                            Select
+                                        </check>
                                     </button>
+
                                 </td>
-                                <td id="Motherboardcost">$</td>
+                                <td id="Motherboardcost">{{ $_SESSION['Motherboardcost'][0] }}
+                                </td>
 
                             </tr>
                             <tr>
                                 <td>GPU:</td>
                                 <td>
-                                    <button type="button" class="btn btn-info text-nowrap" data-toggle="tooltip" data-placement="bottom" name="GPU" id="GPU" title="">
-                                        <check if="{{@SESSION.GPU}} =='Yes'">
-                                            {{ $_SESSION['GPUchoice'] }}
-                                        </check>
+                                    <button type="button" class="btn btn-info text-nowrap" data-toggle="tooltip" data-placement="bottom" name="GPU" id="GPU" title="{{ $_SESSION['GPUchoice'] }}">
 
-                                        <check if="{{@SESSION.GPU}} != 'Yes'">
-                                            Select
-                                        </check>
-                                    </button>
+                                <check if="{{@SESSION['GPU']}} =='Yes'">
+                                    {{ $_SESSION['GPUchoice'] }}
+                                </check>
+
+                                <check if="{{@SESSION['GPU']}} == 'No'">
+                                    Select
+                                </check>
+                                </button>
+
                                 </td>
-                                <td id="GPUcost">$</td>
+                                <td id="GPUcost">{{ $_SESSION['GPUcost'][0] }}
+                                </td>
                             </tr>
                             <tr>
                                 <td>RAM:</td>
                                 <td>
 
-                                    <button type="button" class="btn btn-warning text-nowrap" data-toggle="tooltip" data-placement="bottom" name="RAM" id="RAM" title="">
-                                        Select
-                                    </button>
+                                    <button type="button" class="btn btn-warning text-nowrap" data-toggle="tooltip" data-placement="bottom" name="RAM" id="RAM" title="{{ $_SESSION['RAMchoice'] }}">
+
+                                <check if="{{@SESSION['RAM']}} =='Yes'">
+                                    {{ $_SESSION['RAMchoice'] }}
+                                </check>
+
+                                <check if="{{@SESSION['RAM']}} == 'No'">
+                                    Select
+                                </check>
+                                </button>
+
                                 </td>
-                                <td id="RAMcost">$</td>
+                                <td id="RAMcost">{{ $_SESSION['RAMcost'][0] }}
+                                </td>
                             </tr>
                             <tr>
                                 <td>SSD:</td>
                                 <td>
-                                    <button type="button" class="btn btn-danger text-nowrap" data-toggle="tooltip" data-placement="bottom" name="SSD" id="SSD" title="">
-                                        Select
-                                    </button>
+                                    <button type="button" class="btn btn-danger text-nowrap" data-toggle="tooltip" data-placement="bottom" name="SSD" id="SSD" title="{{ $_SESSION['SSDchoice'] }}">
+
+                                <check if="{{@SESSION['SSD']}} =='Yes'">
+                                    {{ $_SESSION['SSDchoice'] }}
+                                </check>
+
+                                <check if="{{@SESSION['SSD']}} == 'No'">
+                                    Select
+                                </check>
+                                </button>
+
                                 </td>
-                                <td id="SSDcost">$</td>
+                                <td id="SSDcost">{{ $_SESSION['SSDcost'][0] }}
+                                </td>
                             </tr>
                             <tr>
                                 <td>HD:</td>
                                 <td>
 
 
-                                    <button type="button" class="btn btn-muted text-nowrap" data-toggle="tooltip" data-placement="bottom" name="HD" id="HD" title="">
-                                        Select
-                                    </button>
+                                    <button type="button" class="btn btn-muted text-nowrap" data-toggle="tooltip" data-placement="bottom" name="HD" id="HD" title="{{ $_SESSION['HDchoice'] }}">
+
+
+                                <check if="{{@SESSION['HD']}} =='Yes'">
+                                    {{ $_SESSION['HDchoice'] }}
+                                </check>
+
+                                <check if="{{@SESSION['HD']}} == 'No'">
+                                    Select
+                                </check>
+                                </button>
 
                                 </td>
-                                <td id="HDcost">$</td>
+                                <td id="HDcost">{{ $_SESSION['HDcost'][0] }}
+                                </td>
+
                             </tr>
                             <tr>
                                 <td>Power:</td>
                                 <td></td>
                                 <td><input class="form-control" type="text" name="Power" id="Powercost"
                                            placeholder="100">
+                                    <check if="{{@SESSION['Power']}} =='Yes'">
+                                        {{ $_SESSION['Powercost'][0] }}
+                                    </check>
                                 </td>
                             </tr>
                             <tr>
@@ -122,6 +158,9 @@
                                 <td></td>
                                 <td><input class="form-control" type="text" name="Monitor" id="Monitorcost"
                                            placeholder="0">
+                                    <check if="{{@SESSION['Monitor']}} =='Yes'">
+                                        {{ $_SESSION['Monitorcost'][0] }}
+                                    </check>
                                 </td>
                             </tr>
                             <tr>
@@ -129,6 +168,9 @@
                                 <td></td>
                                 <td><input class="form-control" type="text" name="Case" id="Casecost"
                                            placeholder="0">
+                                    <check if="{{@SESSION['Case']}} =='Yes'">
+                                        {{ $_SESSION['Casecost'][0] }}
+                                    </check>
                                 </td>
                             </tr>
                             <tr>
@@ -136,8 +178,12 @@
                                 <td></td>
                                 <td><input class="form-control" type="text" name="mouse" id="Othercost"
                                            placeholder="100">
+                                    <check if="{{@SESSION['Other']}} =='Yes'">
+                                        {{ $_SESSION['Othercost'][0] }}
+                                    </check>
                                 </td>
                             </tr>
+                            var
                             <tr>
                                 <td>Score:
                                     <br><br>CPU:
@@ -161,7 +207,7 @@
                                     <br>
                                 </td>
                                 <td></td>
-                                <td>Total: $
+                                <td>Total: $ {{ $_SESSION['total'] }}
                                 </td>
                             </tr>
 

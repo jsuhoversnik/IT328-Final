@@ -1,7 +1,7 @@
 <?php
 
 //Connect to the database
-require '/home2/jsuhover/config.php';
+require '/home/gwugreen/config.php';
 
 class userbase
 {
@@ -24,7 +24,7 @@ class userbase
         global $dbh;
         $dbh = $this->connect();
 
-        $sql = 'INSERT INTO Members(cpu, motherboard, gpu, ram, ssd, hdd, power, monitor, computerCase, other) 
+        $sql = 'INSERT INTO plans(cpu, motherboard, gpu, ram, ssd, hdd, power, monitor, computerCase, other) 
 VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCase, :other)';
 
         $statement = $dbh->prepare($sql);
@@ -49,7 +49,7 @@ VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCa
         global $dbh;
         $dbh = $this->connect();
 
-        $sql = "SELECT planNumber, cpu, motherboard, gpu, ram, ssd, hdd, power, monitor, computerCase, other FROM plan WHERE planNumber= $planNumber";
+        $sql = "SELECT planNumber, cpu, motherboard, gpu, ram, ssd, hdd, power, monitor, computerCase, other FROM plans WHERE planNumber= $planNumber";
         $results = $dbh->query($sql);
 
         return $results;
@@ -83,6 +83,23 @@ VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCa
 
         $statement = $dbh->prepare($sql);
         $statement->bindParam(':partName', $partName, PDO::PARAM_INT);
+        $statement->execute();
+        // $results = $dbh->query($sql);
+        $results = $statement->fetch();
+
+        //echo $results;
+
+        return $results;
+    }
+
+    function getPlanNumber()
+    {
+        global $dbh;
+        $dbh = $this->connect();
+
+        $sql = "Select max(planNumber) from plans";
+
+        $statement = $dbh->prepare($sql);
         $statement->execute();
         // $results = $dbh->query($sql);
         $results = $statement->fetch();
