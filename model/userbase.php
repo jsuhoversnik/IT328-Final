@@ -25,6 +25,8 @@ class userbase
         global $dbh;
         $dbh = $this->connect();
 
+        echo($cpu . " -" .  $motherboard ." -" . $gpu . " -" .$ram . $ssd . " -" .$hdd ." -" . $power ." -" . $monitor ." -" . $computerCase . " -" .$other);
+
         $sql = 'INSERT INTO plans(cpu, motherboard, gpu, ram, ssd, hdd, power, monitor, computerCase, other) 
 VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCase, :other)';
 
@@ -83,7 +85,7 @@ VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCa
         $sql = "Select price from hardware where partName = :partName ";
 
         $statement = $dbh->prepare($sql);
-        $statement->bindParam(':partName', $partName, PDO::PARAM_INT);
+        $statement->bindParam(':partName', $partName, PDO::PARAM_STR);
         $statement->execute();
         // $results = $dbh->query($sql);
         $results = $statement->fetch();

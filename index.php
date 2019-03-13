@@ -203,8 +203,9 @@ $f3->route('GET|POST /Plan', function ($f3)
 });
 
 $f3->route('GET|POST /Save', function ($f3) {
+    print_r($_SESSION);
     if (isset($_POST['return']))
-        $f3->reroute('/Plan');
+        $f3->reroute('/');
     $template = new Template();
     echo $template->render('views/Save.html');
 });

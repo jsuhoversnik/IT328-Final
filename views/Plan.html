@@ -32,16 +32,18 @@
                                 <td >
 
 
-                                    <button type="button" class="btn btn-primary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="CPU" id="CPU" title="{{ $_SESSION['CPUchoice'] }}">
+                                    <input type="text" class="btn btn-primary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="CPU" id="CPU"  placeholder="Select" title="{{ $_SESSION['CPUchoice'] }}"
 
                                         <check if="{{@SESSION['CPU']}} =='Yes'">
-                                           {{ $_SESSION['CPUchoice'] }}
+                                           value = {{ $_SESSION['CPUchoice'] }}
                                         </check>
 
                                         <check if="{{@SESSION['CPU']}} == 'No'">
                                             Select
                                         </check>
-                                    </button>
+                                            >
+                                </input>
+
 
                                 </td>
                     <td id="CPUcost">{{ $_SESSION['CPUprice'][0] }}
@@ -51,7 +53,7 @@
                             <tr>
                                 <td>Motherboard:</td>
                                 <td>
-                                    <button type="button" class="btn btn-success text-nowrap" data-toggle="tooltip" data-placement="bottom" name="Motherboard" id="Motherboard" title="{{ $_SESSION['Motherboardchoice'] }}">
+                                    <button type="button" class="btn btn-success text-nowrap" data-toggle="tooltip" data-placement="bottom" name="Motherboard" id="Motherboard" value="test" title="{{ $_SESSION['Motherboardchoice'] }}">
                                         <check if="{{@SESSION['Motherboard']}} =='Yes'">
                                         {{ $_SESSION['Motherboardchoice'] }}
                                     </check>
@@ -147,40 +149,44 @@
                                 <td>Power:</td>
                                 <td></td>
                                 <td><input class="form-control" type="text" name="Power" id="Powercost"
-                                           placeholder="100">
+                                           placeholder="100"
                                     <check if="{{@SESSION['Power']}} =='Yes'">
-                                        {{ $_SESSION['Powercost'][0] }}
+                                        value="{{ $_SESSION['Powercost'][0] }}"
                                     </check>
+                                    >
                                 </td>
                             </tr>
                             <tr>
                                 <td>Monitor:</td>
                                 <td></td>
                                 <td><input class="form-control" type="text" name="Monitor" id="Monitorcost"
-                                           placeholder="0">
+                                           placeholder="0"
                                     <check if="{{@SESSION['Monitor']}} =='Yes'">
-                                        {{ $_SESSION['Monitorcost'][0] }}
+                                        value="{{ $_SESSION['Monitorcost'][0] }}"
                                     </check>
+                                    >
                                 </td>
                             </tr>
                             <tr>
                                 <td>Case:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="Case" id="Casecost"
-                                           placeholder="0">
+                                <td><input class="form-control" type="text" name="Case" id="Casecost" placeholder="0"
+
                                     <check if="{{@SESSION['Case']}} =='Yes'">
-                                        {{ $_SESSION['Casecost'][0] }}
+                                        value="{{ $_SESSION['Casecost'][0] }}"
                                     </check>
+                                    >
                                 </td>
                             </tr>
                             <tr>
                                 <td>Other:</td>
                                 <td></td>
                                 <td><input class="form-control" type="text" name="mouse" id="Othercost"
-                                           placeholder="100">
+                                           placeholder="100"
                                     <check if="{{@SESSION['Other']}} =='Yes'">
-                                        {{ $_SESSION['Othercost'][0] }}
+                                        value="{{ $_SESSION['Othercost'][0] }}"
                                     </check>
+                                    >
                                 </td>
                             </tr>
                             <tr>
@@ -194,7 +200,7 @@
                                     <br>
                                 </td>
                                 <td></td>
-                                <td>Total: $ {{ $_SESSION['total'] }}
+                                <td id="total">Total: $ {{ $_SESSION['total'] }}
                                 </td>
                             </tr>
 
@@ -288,7 +294,12 @@
         if(budget=="<500"){
             $("#CPU").html("Intel Core i3 7100");
             $("#CPU").prop('title','Intel Core i3 7100');
+            $("#CPU").prop('value','Intel Core i3 7100');
             $("#CPUcost").html("110");
+
+            $('#CPUprogress').html('<div class="progress ">\n' +
+                '                <div class="progress-bar" role="progressbar" style="width:18%" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div> 18%</div>');
+
 
             $("#Motherboard").html("ASUS EX-B250M-V3");
             $("#Motherboard").prop('title','ASUS EX-B250M-V3');
@@ -646,6 +657,9 @@
             $("#CPU").html("Intel Core i3 7100");
             $("#CPU").prop('title','Intel Core i3 7100');
             $("#CPUcost").html("110");
+
+            $('#CPUprogress').html('<div class="progress ">\n' +
+                '                <div class="progress-bar" role="progressbar" style="width:18%" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div> 18%</div>');
 
             $("#Motherboard").html("ASUS EX-B250M-V3");
             $("#Motherboard").prop('title','ASUS EX-B250M-V3');
@@ -1019,6 +1033,11 @@
     $("#HD").on("click",function()
     {
         $("#model").load('views/partList.php',{type:"hdd"});
+    });
+
+    $("#Monitorcost").onchange(function()
+    {
+        $("#total").html('Total: 0');
     });
 
 </script>

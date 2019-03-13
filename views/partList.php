@@ -23,7 +23,7 @@ if($_POST['type'] == "cpu")
 } else
 {
     //TODO change this to ram max performance
-    $maxPerformance = 17018;
+    $maxPerformance = 5500;
 }
 
 echo "<table class=\"table border\">
@@ -57,7 +57,7 @@ foreach ($hardware as $part)
 
             <td>  ". $part['price'] ."</td>";
 
-    if($_POST['type'] == "gpu" || $_POST['type'] == "cpu")
+    if($_POST['type'] == "gpu" || $_POST['type'] == "cpu" || $_POST['type'] == "ram")
     {
         //echo "<td> ".$part['performance']." </td>";
 
@@ -103,8 +103,9 @@ foreach ($hardware as $part)
              $('#$id').on('click',function()
             {
                 //alert('here');
-                $('#$type').html('$name');
+               // $('#$type').html('$name');
                 $('#$type').prop('title','$name');
+                $('#$type').prop('value','$name');
                 
                 $('#".$type."cost').html('$price');
 
