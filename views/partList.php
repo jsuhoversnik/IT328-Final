@@ -59,15 +59,9 @@ foreach ($hardware as $part)
 
     if($_POST['type'] == "gpu" || $_POST['type'] == "cpu" || $_POST['type'] == "ram")
     {
-        //echo "<td> ".$part['performance']." </td>";
-
-
 
        echo' <td><div class="progress ">
             <div class="progress-bar" role="progressbar" style="width: ' . $performance . '%" aria-valuenow="' . $performance . '" aria-valuemin="0" aria-valuemax="100"></div> ' . $performance . '%</div></td> ';
-
-
-
 
     }
     echo "</tr>";
@@ -110,7 +104,7 @@ foreach ($hardware as $part)
                 $('#".$type."cost').html('$price');
 
                 $('#".$type."progress').html('$progressBar'); 
-
+                calc();
                    
             });
         </script>";

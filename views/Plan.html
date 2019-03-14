@@ -33,8 +33,6 @@
                             <tr>
                                 <td>CPU:</td>
                                 <td >
-
-
                                     <input type="text" class="btn btn-primary text-nowrap" data-toggle="tooltip" data-placement="bottom" name="CPU" id="CPU"  placeholder="Select" title="{{ $_SESSION['CPUchoice'] }}"
 
                                         <check if="{{@SESSION['CPU']}} =='Yes'">
@@ -49,7 +47,15 @@
 
 
                                 </td>
-                    <td id="CPUcost">{{ $_SESSION['CPUprice'][0] }}
+                                <td id="CPUcost" class="cost">
+                                    <check if="{{@SESSION['CPU']}} =='Yes'">
+                                        {{ $_SESSION['CPUprice'][0] }}
+                                    </check>
+
+                                    <check if="{{@SESSION['CPU']}} == 'No'">
+                                        0
+                                    </check>
+
                                 </td>
 
                             </tr>
@@ -67,7 +73,14 @@
                                     </input>
 
                                 </td>
-                                <td id="Motherboardcost">{{ $_SESSION['Motherboardcost'][0] }}
+                                <td id="Motherboardcost" class="cost">
+                                    <check if="{{@SESSION['Motherboard']}} =='Yes'">
+                                        {{ $_SESSION['Motherboardcost'][0] }}
+                                    </check>
+
+                                    <check if="{{@SESSION['Motherboard']}} == 'No'">
+                                        0
+                                    </check>
                                 </td>
 
                             </tr>
@@ -86,7 +99,14 @@
                                 </input>
 
                                 </td>
-                                <td id="GPUcost">{{ $_SESSION['GPUcost'][0] }}
+                                <td id="GPUcost" class="cost">
+                                    <check if="{{@SESSION['GPU']}} =='Yes'">
+                                        {{ $_SESSION['GPUcost'][0] }}
+                                    </check>
+
+                                    <check if="{{@SESSION['GPU']}} == 'No'">
+                                        0
+                                    </check>
                                 </td>
                             </tr>
                             <tr>
@@ -105,7 +125,14 @@
                                 </input>
 
                                 </td>
-                                <td id="RAMcost">{{ $_SESSION['RAMcost'][0] }}
+                                <td id="RAMcost" class="cost">
+                                    <check if="{{@SESSION['RAM']}} =='Yes'">
+                                        {{ $_SESSION['RAMcost'][0] }}
+                                    </check>
+
+                                    <check if="{{@SESSION['RAM']}} == 'No'">
+                                        0
+                                    </check>
                                 </td>
                             </tr>
                             <tr>
@@ -123,7 +150,14 @@
                                 </input>
 
                                 </td>
-                                <td id="SSDcost">{{ $_SESSION['SSDcost'][0] }}
+                                <td id="SSDcost" class="cost">
+                                    <check if="{{@SESSION['SSD']}} =='Yes'">
+                                        {{ $_SESSION['SSDcost'][0] }}
+                                    </check>
+
+                                    <check if="{{@SESSION['SSD']}} == 'No'">
+                                        0
+                                    </check>
                                 </td>
                             </tr>
                             <tr>
@@ -144,17 +178,27 @@
                                 </input>
 
                                 </td>
-                                <td id="HDcost">{{ $_SESSION['HDcost'][0] }}
+                                <td id="HDcost" class="cost">
+                                    <check if="{{@SESSION['HD']}} =='Yes'">
+                                        {{ $_SESSION['HDcost'][0] }}
+                                    </check>
+
+                                    <check if="{{@SESSION['HD']}} == 'No'">
+                                        0
+                                    </check>
                                 </td>
 
                             </tr>
                             <tr>
                                 <td>Power:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="Power" id="Powercost"
+                                <td><input class="form-control" type="text" name="Power" id="Powercost" class="cost"
                                            placeholder="100"
                                     <check if="{{@SESSION['Power']}} =='Yes'">
                                         value="{{ $_SESSION['Powercost'][0] }}"
+                                    </check>
+                                    <check if="{{@SESSION['Power']}} =='No'">
+                                        value="100"
                                     </check>
                                     >
                                 </td>
@@ -162,10 +206,13 @@
                             <tr>
                                 <td>Monitor:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="Monitor" id="Monitorcost"
+                                <td><input class="form-control" type="text" name="Monitor" id="Monitorcost" class="cost"
                                            placeholder="0"
                                     <check if="{{@SESSION['Monitor']}} =='Yes'">
                                         value="{{ $_SESSION['Monitorcost'][0] }}"
+                                    </check>
+                                    <check if="{{@SESSION['Monitor']}} =='No'">
+                                        value="0"
                                     </check>
                                     >
                                 </td>
@@ -173,10 +220,13 @@
                             <tr>
                                 <td>Case:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="Case" id="Casecost" placeholder="0"
+                                <td><input class="form-control" type="text" name="Case" id="Casecost" placeholder="0" class="cost"
 
                                     <check if="{{@SESSION['Case']}} =='Yes'">
                                         value="{{ $_SESSION['Casecost'][0] }}"
+                                    </check>
+                                    <check if="{{@SESSION['Case']}} =='No'">
+                                        value="0"
                                     </check>
                                     >
                                 </td>
@@ -184,10 +234,13 @@
                             <tr>
                                 <td>Other:</td>
                                 <td></td>
-                                <td><input class="form-control" type="text" name="mouse" id="Othercost"
+                                <td><input class="form-control" type="text" name="mouse" id="Othercost" class="cost"
                                            placeholder="100"
                                     <check if="{{@SESSION['Other']}} =='Yes'">
                                         value="{{ $_SESSION['Othercost'][0] }}"
+                                    </check>
+                                    <check if="{{@SESSION['Other']}} =='No'">
+                                        value="100"
                                     </check>
                                     >
                                 </td>
@@ -203,7 +256,8 @@
                                     <br>
                                 </td>
                                 <td></td>
-                                <td id="total">Total: $ {{ $_SESSION['total'] }}
+                                <td id="total">
+                                    Total: $ {{ $_SESSION['total'] }}
                                 </td>
                             </tr>
 
@@ -1401,10 +1455,33 @@
         $("#model").load('views/partList.php',{type:"hdd"});
     });
 
-    $("#Monitorcost").onchange(function()
+
+
+    $("#Monitorcost,#Powercost,#Casecost, #Othercost").change(function()
     {
-        $("#total").html('Total: 0');
+        calc();
     });
+
+    function calc()
+    {
+        //collect all of our part costs and calculate the total
+        var cpu = parseInt(document.getElementById('CPUcost').innerHTML);
+        var mobo = parseInt(document.getElementById('Motherboardcost').innerHTML);
+        var gpu = parseInt(document.getElementById('GPUcost').innerHTML);
+        var ram = parseInt(document.getElementById('RAMcost').innerHTML);
+        var ssd = parseInt(document.getElementById('SSDcost').innerHTML);
+        var hdd = parseInt(document.getElementById('HDcost').innerHTML);
+        var power = parseInt(document.getElementById('Powercost').value);
+        var monitor = parseInt(document.getElementById('Monitorcost').value);
+        var tower = parseInt(document.getElementById('Casecost').value);
+        var other = parseInt(document.getElementById('Othercost').value);
+
+
+        var result = cpu + mobo + gpu + ram + ssd + hdd + power + monitor + tower + other;
+
+        document.getElementById('total').innerHTML = "Total: $" + result;
+    }
+
 
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
