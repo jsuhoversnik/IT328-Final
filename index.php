@@ -1,9 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Jake, Wu
- * Date: 1/11/2019
- * Time: 10:24 AM
+ * Wu, Jake
+ * 2/24/2019
+ * 328/IT328-Final/index.php
  */
 
 //turn on error reporting
@@ -30,60 +29,59 @@ $f3->route('GET|POST /', function ($f3) {
     $userbase = new userbase();
 
 
-    if (isset($_POST['plan'])&&isset($_POST['submit'])) {
+    if (isset($_POST['plan']) && isset($_POST['submit'])) {
         $planNumber = $_POST['plan'];
         //if (validPlan($planNumber)) {
-            $_SESSION['planNumber'] = $planNumber;
+        $_SESSION['planNumber'] = $planNumber;
 //            $plan = new plan($planNumber);
-            $_SESSION['CPU'] = "Yes";
-            $_SESSION['CPUchoices'] = $userbase->getPart($planNumber,"cpu");
+        $_SESSION['CPU'] = "Yes";
+        $_SESSION['CPUchoices'] = $userbase->getPart($planNumber, "cpu");
 
-            $_SESSION['GPU'] = "Yes";
-            $_SESSION['GPUchoices'] = $userbase->getPart($planNumber,"gpu");
+        $_SESSION['GPU'] = "Yes";
+        $_SESSION['GPUchoices'] = $userbase->getPart($planNumber, "gpu");
 
         $_SESSION['Motherboard'] = "Yes";
-        $_SESSION['Motherboardchoices'] = $userbase->getPart($planNumber,"motherboard");
+        $_SESSION['Motherboardchoices'] = $userbase->getPart($planNumber, "motherboard");
 
         $_SESSION['RAM'] = "Yes";
-        $_SESSION['RAMchoices'] = $userbase->getPart($planNumber,"ram");
+        $_SESSION['RAMchoices'] = $userbase->getPart($planNumber, "ram");
 
         $_SESSION['SSD'] = "Yes";
-        $_SESSION['SSDchoices'] = $userbase->getPart($planNumber,"ssd");
+        $_SESSION['SSDchoices'] = $userbase->getPart($planNumber, "ssd");
 
         $_SESSION['HD'] = "Yes";
-        $_SESSION['HDchoices'] = $userbase->getPart($planNumber,"hdd");
+        $_SESSION['HDchoices'] = $userbase->getPart($planNumber, "hdd");
 
         $_SESSION['Power'] = "Yes";
-        $_SESSION['Powercost'] = $userbase->getPart($planNumber,"power");
+        $_SESSION['Powercost'] = $userbase->getPart($planNumber, "power");
 
         $_SESSION['Monitor'] = "Yes";
-        $_SESSION['Monitorcost'] = $userbase->getPart($planNumber,"monitor");
+        $_SESSION['Monitorcost'] = $userbase->getPart($planNumber, "monitor");
 
         $_SESSION['Case'] = "Yes";
-        $_SESSION['Casecost'] = $userbase->getPart($planNumber,"computerCase");
+        $_SESSION['Casecost'] = $userbase->getPart($planNumber, "computerCase");
 
         $_SESSION['Other'] = "Yes";
-        $_SESSION['Othercost'] = $userbase->getPart($planNumber,"other");
+        $_SESSION['Othercost'] = $userbase->getPart($planNumber, "other");
 
-            $_SESSION['CPUchoice']=$_SESSION['CPUchoices'][0];
-            $_SESSION['GPUchoice']=$_SESSION['GPUchoices'][0];
-        $_SESSION['Motherboardchoice']=$_SESSION['Motherboardchoices'][0];
-        $_SESSION['RAMchoice']=$_SESSION['RAMchoices'][0];
-        $_SESSION['SSDchoice']=$_SESSION['SSDchoices'][0];
-        $_SESSION['HDchoice']=$_SESSION['HDchoices'][0];
-            //print_r($_SESSION['CPUchoice']);
-       // }
+        $_SESSION['CPUchoice'] = $_SESSION['CPUchoices'][0];
+        $_SESSION['GPUchoice'] = $_SESSION['GPUchoices'][0];
+        $_SESSION['Motherboardchoice'] = $_SESSION['Motherboardchoices'][0];
+        $_SESSION['RAMchoice'] = $_SESSION['RAMchoices'][0];
+        $_SESSION['SSDchoice'] = $_SESSION['SSDchoices'][0];
+        $_SESSION['HDchoice'] = $_SESSION['HDchoices'][0];
+        //print_r($_SESSION['CPUchoice']);
+        // }
         //else {
         //    $f3->set("error['plan']", "Plan doesn't exist.");
         //}
     }
 
 
-    if (isset($_POST['submit'])){
-        if($_POST['plan']!=""){
+    if (isset($_POST['submit'])) {
+        if ($_POST['plan'] != "") {
             $f3->reroute('/Plan');
-        }
-        else{
+        } else {
             $f3->reroute('/CPU');
         }
 
@@ -95,14 +93,13 @@ $f3->route('GET|POST /', function ($f3) {
 
 $f3->route('GET|POST /CPU', function ($f3) {
 
-    if (($_POST['CPU']=="Yes")&&isset($_POST['submit'])) {
+    if (($_POST['CPU'] == "Yes") && isset($_POST['submit'])) {
         //$CPU = $_POST['CPU'];
         //$_SESSION['CPU'] = $CPU;
 
         $CPUchoice = $_POST['CPUchoice'];
         $_SESSION['CPUchoice'] = $CPUchoice;
-    }else if(($_POST['CPU']=="No")&&isset($_POST['submit']))
-    {
+    } else if (($_POST['CPU'] == "No") && isset($_POST['submit'])) {
         $_SESSION['CPU'] = "No";
     }
 
@@ -124,14 +121,13 @@ $f3->route('GET|POST /CPU', function ($f3) {
 $f3->route('GET|POST /GPU', function ($f3) {
 
     //print_r($_SESSION);
-    if (($_POST['GPU']=="Yes")&&isset($_POST['submit'])) {
+    if (($_POST['GPU'] == "Yes") && isset($_POST['submit'])) {
         //$GPU = $_POST['GPU'];
-       // $_SESSION['GPU'] = $GPU;
+        // $_SESSION['GPU'] = $GPU;
 
         $GPUchoice = $_POST['GPUchoice'];
         $_SESSION['GPUchoice'] = $GPUchoice;
-    }else if(($_POST['GPU']=="No")&&isset($_POST['submit']))
-    {
+    } else if (($_POST['GPU'] == "No") && isset($_POST['submit'])) {
         $_SESSION['GPU'] = "No";
     }
 
@@ -142,40 +138,34 @@ $f3->route('GET|POST /GPU', function ($f3) {
     echo $template->render('views/GPU.html');
 });
 
-$f3->route('GET|POST /Plan', function ($f3)
-{
+$f3->route('GET|POST /Plan', function ($f3) {
+    print_r($_SESSION['CPUchoice']);
     global $userbase;
     $userbase = new userbase();
 
-    if(isset( $_SESSION['CPUchoice']))
-    {
+    if (isset($_SESSION['CPUchoice'])) {
         $_SESSION['CPUprice'] = $userbase->getPrice($_SESSION['CPUchoice']);
     }
-    if(isset( $_SESSION['Motherboardchoice']))
-    {
+    if (isset($_SESSION['Motherboardchoice'])) {
         $_SESSION['Motherboardcost'] = $userbase->getPrice($_SESSION['Motherboardchoice']);
     }
-    if(isset( $_SESSION['GPUchoice']))
-    {
+    if (isset($_SESSION['GPUchoice'])) {
         $_SESSION['GPUcost'] = $userbase->getPrice($_SESSION['GPUchoice']);
     }
-    if(isset( $_SESSION['RAMchoice']))
-    {
+    if (isset($_SESSION['RAMchoice'])) {
         $_SESSION['RAMcost'] = $userbase->getPrice($_SESSION['RAMchoice']);
     }
-    if(isset( $_SESSION['SSDchoice']))
-    {
+    if (isset($_SESSION['SSDchoice'])) {
         $_SESSION['SSDcost'] = $userbase->getPrice($_SESSION['SSDchoice']);
     }
-    if(isset( $_SESSION['HDchoice']))
-    {
+    if (isset($_SESSION['HDchoice'])) {
         $_SESSION['HDcost'] = $userbase->getPrice($_SESSION['HDchoice']);
     }
 
 
-    $_SESSION['total']=$_SESSION['CPUprice'][0]+ $_SESSION['Motherboardcost'][0]+$_SESSION['GPUcost'][0]
-                                    +$_SESSION['RAMcost'][0]+$_SESSION['SSDcost'][0]+$_SESSION['HDcost'][0]
-        +$_SESSION['Powercost'][0]+$_SESSION['Monitorcost'][0]+$_SESSION['Casecost'][0]+$_SESSION['Othercost'][0];
+    $_SESSION['total'] = $_SESSION['CPUprice'][0] + $_SESSION['Motherboardcost'][0] + $_SESSION['GPUcost'][0]
+        + $_SESSION['RAMcost'][0] + $_SESSION['SSDcost'][0] + $_SESSION['HDcost'][0]
+        + $_SESSION['Powercost'][0] + $_SESSION['Monitorcost'][0] + $_SESSION['Casecost'][0] + $_SESSION['Othercost'][0];
 
     if (isset($_POST['Save'])) {
 
@@ -195,7 +185,7 @@ $f3->route('GET|POST /Plan', function ($f3)
             $_SESSION['Monitor'], $_SESSION['Case'], $_SESSION['Other']);
 
         $_SESSION['planNumbers'] = $userbase->getPlanNumber();
-        $_SESSION['planNumber']=$_SESSION['planNumbers'][0];
+        $_SESSION['planNumber'] = $_SESSION['planNumbers'][0];
         $f3->reroute('/Save');
     }
     $template = new Template();
@@ -203,7 +193,7 @@ $f3->route('GET|POST /Plan', function ($f3)
 });
 
 $f3->route('GET|POST /Save', function ($f3) {
-    print_r($_SESSION);
+    //print_r($_SESSION);
     if (isset($_POST['return']))
         $f3->reroute('/');
     $template = new Template();

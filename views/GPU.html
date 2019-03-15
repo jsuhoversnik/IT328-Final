@@ -1,3 +1,8 @@
+<!--
+Jake, Wu
+3/15/2019
+328/IT328-Final/views/GPU.html
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,24 +36,26 @@
                     <br/>
                     <div class="">
                         <div class="radio">
-                            <label class="radio-inline mr-3"><input type="radio" id="Yes" name="GPU" value="Yes"> Yes</label>
-                            <label class="radio-inline"><input type="radio" id="No" name="GPU" value="No" checked > No</label>
+                            <label class="radio-inline mr-3"><input type="radio" id="Yes" name="GPU" value="Yes">
+                                Yes</label>
+                            <label class="radio-inline"><input type="radio" id="No" name="GPU" value="No" checked>
+                                No</label>
                         </div>
                         <br/>
                         <div id="divResult"></div>
                         <!--<div class="col-10 ml-5">-->
-                            <!--&lt;!&ndash;TODO add javascript to hide input field if 'no' is selected&ndash;&gt;-->
-                            <!--<input class="form-control" name="GPUchoice" list="GPUchoice">-->
+                        <!--&lt;!&ndash;TODO add javascript to hide input field if 'no' is selected&ndash;&gt;-->
+                        <!--<input class="form-control" name="GPUchoice" list="GPUchoice">-->
                         <!--</div>-->
                         <!--<datalist id="GPUchoice">-->
-                            <!--<option value="TITAN Xp COLLECTORS EDITION">-->
-                            <!--<option value="GeForce GTX 1080 Ti">-->
-                            <!--<option value="NVIDIA TITAN Xp">-->
-                            <!--<option value="Radeon Pro Vega 64">-->
-                            <!--<option value="TITAN V">-->
-                            <!--<option value="GeForce GTX 1070 Ti">-->
-                            <!--<option value="GeForce GTX 1080">-->
-                            <!--<option value="GeForce GTX 980 Ti">-->
+                        <!--<option value="TITAN Xp COLLECTORS EDITION">-->
+                        <!--<option value="GeForce GTX 1080 Ti">-->
+                        <!--<option value="NVIDIA TITAN Xp">-->
+                        <!--<option value="Radeon Pro Vega 64">-->
+                        <!--<option value="TITAN V">-->
+                        <!--<option value="GeForce GTX 1070 Ti">-->
+                        <!--<option value="GeForce GTX 1080">-->
+                        <!--<option value="GeForce GTX 980 Ti">-->
 
                         <!--</datalist>-->
                     </div>
@@ -70,18 +77,18 @@
     </div>
 </div>
 <div class="text-center">
-    <img src="images/logo2.gif" height="200" width="200" alt="logo">
+    <!--<img src="images/logo2.gif" height="200" width="200" alt="logo">-->
 </div>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
 
-    $("#Yes").on("click",function(){
-       // $("#divResult").load('{{ @BASE }}/gpuList');
-        $("#divResult").load('views/GPUDatalist.php',{type:"gpu"});
+    $("#Yes").on("click", function () {
+        // $("#divResult").load('{{ @BASE }}/gpuList');
+        $("#divResult").load('views/GPUDatalist.php', {type: "gpu"});
 
     });
-    $("#No").on("click",function(){
+    $("#No").on("click", function () {
         $("#divResult").html("");
     });
 

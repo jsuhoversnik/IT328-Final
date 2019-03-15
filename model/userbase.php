@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Wu, Jake
+ * 2/24/2019
+ * 328/IT328-Final/model/userbase.php
+ */
 //Connect to the database
 //require '/home/gwugreen/config.php';
 require '/home2/jsuhover/config.php';
@@ -25,7 +29,7 @@ class userbase
         global $dbh;
         $dbh = $this->connect();
 
-        echo($cpu . " -" .  $motherboard ." -" . $gpu . " -" .$ram . $ssd . " -" .$hdd ." -" . $power ." -" . $monitor ." -" . $computerCase . " -" .$other);
+        echo($cpu . " -" . $motherboard . " -" . $gpu . " -" . $ram . $ssd . " -" . $hdd . " -" . $power . " -" . $monitor . " -" . $computerCase . " -" . $other);
 
         $sql = 'INSERT INTO plans(cpu, motherboard, gpu, ram, ssd, hdd, power, monitor, computerCase, other) 
 VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCase, :other)';
@@ -69,7 +73,7 @@ VALUES(:cpu, :motherboard, :gpu, :ram, :ssd, :hdd, :power, :monitor, :computerCa
         $statement = $dbh->prepare($sql);
         $statement->bindParam(':planNumber', $planNumber, PDO::PARAM_INT);
         $statement->execute();
-       // $results = $dbh->query($sql);
+        // $results = $dbh->query($sql);
         $results = $statement->fetch();
 
         //echo $results;

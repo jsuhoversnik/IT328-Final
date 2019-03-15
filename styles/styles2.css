@@ -1,6 +1,6 @@
-body{
+body {
     background: url("../images/background4.jpg") no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
     background-attachment: fixed;
 }
 
@@ -8,14 +8,13 @@ body{
     background: white;
 }
 
-#mainContain{
+#mainContain {
     background: url("../images/background5.jpg") no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
     background-attachment: fixed;
 }
 
-#mainArea{
-    background: url("../images/background.gif") no-repeat ;
-    background-size:100% 100%;
-    background-attachment: fixed;
+#mainArea {
+    background: white;
+    opacity: 0.85;
 }

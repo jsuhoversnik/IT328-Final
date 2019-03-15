@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Wu, Jake
+ * 2/24/2019
+ * 328/IT328-Final/model/database.php
+ */
 //Connect to the database
 //require '/home/gwugreen/config.php';
 require '/home2/jsuhover/config.php';

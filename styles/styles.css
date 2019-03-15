@@ -1,11 +1,9 @@
 @charset "utf-8";
 textarea {
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    border:1px
-    solid
-    #ccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .btn {
@@ -38,6 +36,7 @@ textarea {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
 /*
 body{
     cursor:url(../images/mouse2.png),auto;
@@ -45,16 +44,16 @@ body{
 }
 */
 
-body{
+body {
     background: url("../images/background4.jpg") no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
     background-attachment: fixed;
 }
 
 
-#mainContain{
+#mainContain {
     background: url("../images/background5.jpg") no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
     background-attachment: fixed;
 }
 

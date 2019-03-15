@@ -1,10 +1,16 @@
+<!--
+Jake, Wu
+3/15/2019
+328/IT328-Final/views/CPU.html
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>CPU</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/styles2.css">
 </head>
 <body>
@@ -31,23 +37,25 @@
                     <br/>
                     <div class="">
                         <div class="radio">
-                            <label class="radio-inline mr-3"><input type="radio" id="Yes" name="CPU" value="Yes"> Yes</label>
-                            <label class="radio-inline"><input type="radio" id="No" name="CPU" value="No" checked > No</label>
+                            <label class="radio-inline mr-3"><input type="radio" id="Yes" name="CPU" value="Yes">
+                                Yes</label>
+                            <label class="radio-inline"><input type="radio" id="No" name="CPU" value="No" checked>
+                                No</label>
                         </div>
                         <br/>
                         <div id="divResult"></div>
                         <!--<div class="col-10 ml-5">-->
-                            <!--<input class="form-control" name="CPUchoice" list="CPUchoice">-->
+                        <!--<input class="form-control" name="CPUchoice" list="CPUchoice">-->
                         <!--</div>-->
                         <!--<datalist id="CPUchoice">-->
-                            <!--<option value="Intel Xeon Platinum 8173M @ 2.00GHz">-->
-                            <!--<option value="Intel Xeon Gold 6154 @ 3.00GHz">-->
-                            <!--<option value="Intel Core i9-7980XE @ 2.60GHz">-->
-                            <!--<option value="Intel Core i7-7820X @ 3.60GHz">-->
-                            <!--<option value="Intel Xeon E5-2680 v3 @ 2.50GHz">-->
-                            <!--<option value="Intel Core i7-7900X @ 3.30GHz">-->
-                            <!--<option value="AMD EPYC 7401P">-->
-                            <!--<option value="Intel Core i7-6900K @ 3.20GHz">-->
+                        <!--<option value="Intel Xeon Platinum 8173M @ 2.00GHz">-->
+                        <!--<option value="Intel Xeon Gold 6154 @ 3.00GHz">-->
+                        <!--<option value="Intel Core i9-7980XE @ 2.60GHz">-->
+                        <!--<option value="Intel Core i7-7820X @ 3.60GHz">-->
+                        <!--<option value="Intel Xeon E5-2680 v3 @ 2.50GHz">-->
+                        <!--<option value="Intel Core i7-7900X @ 3.30GHz">-->
+                        <!--<option value="AMD EPYC 7401P">-->
+                        <!--<option value="Intel Core i7-6900K @ 3.20GHz">-->
 
                         <!--</datalist>-->
                     </div>
@@ -69,19 +77,19 @@
     </div>
 </div>
 <div class="text-center">
-    <img src="images/logo2.gif" height="200" width="200" alt="logo">
+    <!--<img src="images/logo2.gif" height="200" width="200" alt="logo">-->
 </div>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
 
-    $("#Yes").on("click",function(){
+    $("#Yes").on("click", function () {
         //$("#divResult").load('{{ @BASE }}/cpuList');
-        $("#divResult").load('views/CPUDatalist.php',{type:"cpu"});
+        $("#divResult").load('views/CPUDatalist.php', {type: "cpu"});
 
     });
-    $("#No").on("click",function(){
-        $("#divResult").html("")    ;
+    $("#No").on("click", function () {
+        $("#divResult").html("");
     });
 
 </script>
