@@ -122,8 +122,6 @@ $f3->route('GET|POST /GPU', function ($f3) {
 
     //print_r($_SESSION);
     if (($_POST['GPU'] == "Yes") && isset($_POST['submit'])) {
-        //$GPU = $_POST['GPU'];
-        // $_SESSION['GPU'] = $GPU;
 
         $GPUchoice = $_POST['GPUchoice'];
         $_SESSION['GPUchoice'] = $GPUchoice;
@@ -139,7 +137,7 @@ $f3->route('GET|POST /GPU', function ($f3) {
 });
 
 $f3->route('GET|POST /Plan', function ($f3) {
-    print_r($_SESSION['CPUchoice']);
+    //print_r($_SESSION['CPUchoice']);
     global $userbase;
     $userbase = new userbase();
 
