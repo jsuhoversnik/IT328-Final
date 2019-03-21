@@ -3,6 +3,8 @@
  * Wu, Jake
  * 2/24/2019
  * 328/IT328-Final/views/CPUDatalist.php
+ *
+ * get a list of CPUs and show them as elements of a datalist
  */
 require_once('../model/database.php');
 

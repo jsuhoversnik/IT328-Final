@@ -3,6 +3,9 @@
  * Wu, Jake
  * 2/24/2019
  * 328/IT328-Final/index.php
+ *
+ * Build a PC website
+ * Give users a list of parts, prices and performance to build thier own pc. Allow them to save their plans for later reference.
  */
 
 //turn on error reporting

@@ -3,6 +3,9 @@
  * Wu, Jake
  * 2/24/2019
  * 328/IT328-Final/views/patList.php
+ *
+ * Get a list of parts by type and display as table elements
+ * includes jquery to allow onclick
  */
 
 require_once('../model/database.php');

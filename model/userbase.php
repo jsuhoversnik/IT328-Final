@@ -3,6 +3,8 @@
  * Wu, Jake
  * 2/24/2019
  * 328/IT328-Final/model/userbase.php
+ *
+ * contains functions to insert and retrieve plan information to relevant table.
  */
 //Connect to the database
 //require '/home/gwugreen/config.php';

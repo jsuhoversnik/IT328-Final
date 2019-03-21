@@ -3,6 +3,8 @@
  * Wu, Jake
  * 2/24/2019
  * 328/IT328-Final/model/database.php
+ *
+ * contains functions to connect to database as well as query full hardware lists as well as single parts
  */
 //Connect to the database
 //require '/home/gwugreen/config.php';
